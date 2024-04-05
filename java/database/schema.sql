@@ -2,10 +2,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS collection;
 DROP TABLE IF EXISTS card;
-<<<<<<< HEAD
 
-=======
->>>>>>> 79b839c417b94f5bb03a2c848b476accba7d25aa
 CREATE TABLE users (
 	user_id SERIAL,
 	username varchar(50) NOT NULL UNIQUE,
@@ -14,12 +11,13 @@ CREATE TABLE users (
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
+
 CREATE TABLE card (
     card_id int,
     card_name varchar(100) NOT NULL,
     manacost varchar(20) NOT NULL,
     colors varchar(10) NOT NULL,
-    coloridenitity varchar(10) NOT NULL,
+    coloridentity varchar(10) NOT NULL,
     type varchar(50),
     subtype varchar(50),
     rarity varchar(20),
@@ -29,12 +27,14 @@ CREATE TABLE card (
     artist varchar(100),
     image BYTEA
 );
+
 CREATE TABLE collection (
     collection_id SERIAL,
     user_id
     collection_name varchar(100) NOT NULL,
     cards card[]
 );
+
 COMMIT TRANSACTION;
 
 
