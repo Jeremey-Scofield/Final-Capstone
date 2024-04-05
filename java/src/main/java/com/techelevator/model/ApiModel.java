@@ -1,13 +1,16 @@
 package com.techelevator.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ApiModel {
-    public ArrayList<String> categories;
-    public String created_at;
-    public String icon_url;
-    public String id;
-    public String updated_at;
-    public String url;
-    public String value;
+    public String set_Name;
+
+    public String set_Code;
+
+    public Date release_date;
+
+    public String image_call_api;
+
+
 }

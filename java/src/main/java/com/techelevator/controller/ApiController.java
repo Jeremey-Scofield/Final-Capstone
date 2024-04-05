@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.model.ApiModel;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,7 @@ public class JokeController {
     }
     @RequestMapping(path="", method = RequestMethod.GET)
     public String getJoke() {
-        C joke = new Joke();
+        ApiModel cardSet = new ApiModel();
         joke = jokeService.getJokeFromApi();
 
         return joke.value;

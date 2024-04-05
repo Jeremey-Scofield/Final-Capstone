@@ -19,7 +19,7 @@ CREATE TABLE card (
     card_name varchar(100) NOT NULL,
     manacost varchar(20) NOT NULL,
     colors varchar(10) NOT NULL,
-    coloridenitity varchar(10) NOT NULL,
+    coloridentity varchar(10) NOT NULL,
     type varchar(50),
     subtype varchar(50),
     rarity varchar(20),
