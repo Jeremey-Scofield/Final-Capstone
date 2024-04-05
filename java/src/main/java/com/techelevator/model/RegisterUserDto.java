@@ -12,6 +12,8 @@ public class RegisterUserDto {
     @NotEmpty
     private String username;
     @NotEmpty
+    private String emailAddress;
+    @NotEmpty
     private String password;
     @NotEmpty
     private String confirmPassword;
@@ -20,6 +22,14 @@ public class RegisterUserDto {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public void setUsername(String username) {

@@ -1,8 +1,8 @@
 <template>
+  <div class="main">
   <div id="capstone-app">
     <div id="header" class="header">
       <h1> MTG Card Collector</h1>
-    
       <div id="login">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
         <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
@@ -25,7 +25,6 @@
     </div>
 
     <div id="ads" class="ads">
-      <h3>Ads go here</h3>
       <sidebar-ads />
     </div>
 
@@ -38,14 +37,16 @@
     
     
   </div>
+</div>
 </template>
 
 <script>
-
+import sidebarAds from "./components/sidebarAds.vue";
 import bottomFooter from "./components/bottomFooter.vue";
 export default {
   components: {
-    bottomFooter
+    bottomFooter,
+    sidebarAds
   }
 
 }
@@ -53,6 +54,10 @@ export default {
 </script>
 
 <style>
+.main {
+  font-family: "IM Fell DW Pica", serif;
+}
+
 #header {
   grid-area: header;
   border-style: solid;
@@ -92,6 +97,17 @@ export default {
 
 }
 
+.im-fell dw pica-regular {
+  font-family: "IM Fell DW Pica", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.im-fell dw pica-regular-italic {
+  font-family: "IM Fell DW Pica", serif;
+  font-weight: 400;
+  font-style: italic;
+}
 
 
 </style>

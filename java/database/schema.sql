@@ -1,12 +1,9 @@
 BEGIN TRANSACTION;
 DROP TABLE IF EXISTS users;
-<<<<<<< HEAD
-DROP TABLE IF EXISTS card;
-DROP TABLE IF EXISTS collection;
-=======
+
 DROP TABLE IF EXISTS collection;
 DROP TABLE IF EXISTS card;
->>>>>>> 0d5d7a95440ad5649d154db07b13e6801936f96b
+
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -35,7 +32,6 @@ CREATE TABLE card (
 
 CREATE TABLE collection (
     collection_id SERIAL,
-    user_id
     collection_name varchar(100) NOT NULL,
     cards card[]
 );
