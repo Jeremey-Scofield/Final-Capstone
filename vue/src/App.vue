@@ -30,7 +30,6 @@
     </div>
 
     <div id="footer" class="footer">
-      <h3>footer here</h3>
       <bottom-footer />
     </div>
 
@@ -42,6 +41,14 @@
 </template>
 
 <script>
+
+import bottomFooter from "./components/bottomFooter.vue";
+export default {
+  components: {
+    bottomFooter
+  }
+
+}
 
 </script>
 
