@@ -1,11 +1,14 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS collection;
+DROP TABLE IF EXISTS card;
 
 CREATE TABLE users (
 	user_id SERIAL,
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
+	email varchar(100),
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
@@ -28,10 +31,8 @@ CREATE TABLE card (
 
 CREATE TABLE collection (
     collection_id SERIAL,
+    user_id
     collection_name varchar(100) NOT NULL,
-    CONSTRAINT user_id
-        FOREIGN KEY(user_id)
-            REFERENCES users(user_id),
     cards card[]
 );
 
