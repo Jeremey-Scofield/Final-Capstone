@@ -1,6 +1,8 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS card;
+DROP TABLE IF EXISTS collection;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -24,14 +26,11 @@ CREATE TABLE card (
     text varchar(250),
     artist varchar(100),
     image BYTEA
-)
+);
 
 CREATE TABLE collection (
     collection_id SERIAL,
     collection_name varchar(100) NOT NULL,
-    CONSTRAINT user_id
-        FOREIGN KEY(user_id)
-            REFERENCES users(user_id),
     cards card[]
 );
 
