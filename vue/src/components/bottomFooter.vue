@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="footer-container">
         <div class="copyright">
         <p>“[Title of your Fan Content] is unofficial Fan Content permitted under the Fan Content Policy. 
         Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.”</p>
@@ -31,7 +31,7 @@
 
 <style>
 
-.container {
+.footer-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 20px;

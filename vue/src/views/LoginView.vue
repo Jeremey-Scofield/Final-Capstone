@@ -8,6 +8,7 @@
       <div role="alert" v-if="this.$route.query.registration">
         Thank you for registering, please sign in.
       </div>
+      <div class="login-form">
       <div class="form-input-group">
         <label for="username">Username</label>
         <input type="text" id="username" v-model="user.username" required autofocus />
@@ -17,6 +18,7 @@
         <input type="password" id="password" v-model="user.password" required />
       </div>
       <button type="submit">Sign in</button>
+      </div>
       <p>
       <router-link v-bind:to="{ name: 'register' }">Need an account? Sign up.</router-link></p>
     </form>
@@ -67,4 +69,27 @@ export default {
 label {
   margin-right: 0.5rem;
 }
+
+h1 {
+  font-size: 1em;
+}
+
+.login-form{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 5px;
+  
+}
+
+#username {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+#password {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
 </style>

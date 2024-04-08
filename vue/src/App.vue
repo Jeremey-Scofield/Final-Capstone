@@ -2,25 +2,16 @@
   <div class="main">
   <div id="capstone-app">
     <div id="header" class="header">
-      <h1> MTG Card Collector</h1>
-      <div id="login">
-        <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-        <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-        <router-view />
-      </div>
+     <page-header/>
     </div>
 
     <div id="navBar" class="navBar">
-      <p>I am the nav bar</p>
+  
       <nav-bar />
     </div>
 
     <div id="mainContent" class="mainContent">
-      <p>Main Content Area</p>
-      <p>search bar</p>
-      <p>random card</p>
-      <p>sets</p>
-      <p>user collections</p>
+      
       <main-content />
     </div>
 
@@ -41,12 +32,19 @@
 </template>
 
 <script>
-import sidebarAds from "./components/sidebarAds.vue";
-import bottomFooter from "./components/bottomFooter.vue";
+import SidebarAds from "./components/SidebarAds.vue";
+import BottomFooter from "./components/BottomFooter.vue";
+import NavBar from "./components/NavBar.vue";
+import MainContent from "./components/MainContent.vue";
+import PageHeader from "./components/PageHeader.vue";
+
 export default {
   components: {
-    bottomFooter,
-    sidebarAds
+    BottomFooter,
+    SidebarAds,
+    NavBar,
+    MainContent,
+    PageHeader
   }
 
 }

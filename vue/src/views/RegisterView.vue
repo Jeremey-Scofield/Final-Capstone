@@ -5,23 +5,25 @@
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <div class="form-input-group">
+      <div class="registration-container">
+      <div class="form-input-username">
         <label for="username">Username</label>
         <input type="text" id="username" v-model="user.username" required autofocus />
       </div>
-      <div class="form-input-group">
+      <div class="form-input-email">
         <label for="emailAddress">Email Address</label>
         <input type="emailAddress" id="emailAddress" v-model="user.email" required />
       </div>
-      <div class="form-input-group">
+      <div class="form-input-password">
         <label for="password">Password</label>
         <input type="password" id="password" v-model="user.password" required />
       </div>
-      <div class="form-input-group">
+      <div class="form-input-confirmpassword">
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
       <button type="submit">Create Account</button>
+      </div>
       <p><router-link v-bind:to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
     </form>
   </div>
@@ -78,10 +80,63 @@ export default {
 </script>
 
 <style scoped>
-.form-input-group {
-  margin-bottom: 1rem;
+.registration-container {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-areas: 
+   "username userinput email emailinput"
+   "password passwordinput confirmpassword confirmpasswordinput"
+   "button . . .";
+   justify-items: start;
+  
 }
 label {
   margin-right: 0.5rem;
+  
+  
+
 }
+
+.form-input-username >label{
+grid-area: username;
+}
+.form-input-username >input{
+grid-area: userinput;
+background: transparent;
+
+}
+.form-input-email>label {
+  grid-area: email;
+}
+.form-input-email>input {
+  grid-area: emailinput;
+  background: transparent;
+}
+
+.form-input-password> label{
+  grid-area: password;
+}
+.form-input-password> input{
+  grid-area: passwordinput;
+  background: transparent;
+  
+}
+
+.form-input-confirmpassword>label{
+  grid-area: confirmpassword;
+}
+.form-input-confirmpassword>input{
+  grid-area: confirmpasswordinput;
+  background: transparent;
+}
+button{
+  grid-area:button;
+  margin-top: 10px;
+  
+}
+
+h1 {
+  font-size: 1em;
+}
+
 </style>
