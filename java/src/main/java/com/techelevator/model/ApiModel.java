@@ -12,5 +12,4 @@ public class ApiModel {
 
     public String image_call_api;
 
-
 }
