@@ -57,6 +57,14 @@ const routes = [
       requiresAuth: false,
     },
   },
+  {
+    path: "/cards",
+    name: "card-sets",
+    component: HomeView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
 ];
 
 // Create the router
