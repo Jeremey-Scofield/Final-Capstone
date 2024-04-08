@@ -11,4 +11,5 @@ public class ApiModel {
     public Date release_date;
 
     public String image_call_api;
+
 }
