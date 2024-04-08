@@ -56,6 +56,7 @@ export default {
 <style>
 .main {
   font-family: "IM Fell DW Pica", serif;
+  background: linear-gradient(to bottom right, #FFFFFF, #cecece, #979697);
 }
 
 #header {
@@ -77,6 +78,7 @@ export default {
 #ads {
   grid-area: ads;
   border-style: solid;
+  
 }
 
 #footer {
