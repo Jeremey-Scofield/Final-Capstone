@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+
   <div id="capstone-app">
     <div id="header" class="header">
      <page-header/>
@@ -27,7 +27,7 @@
       
     
     
-  </div>
+ 
 </div>
 </template>
 
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style>
-.main {
+.capstone-app {
   font-family: "IM Fell DW Pica", serif;
   background: linear-gradient(to bottom right, #FFFFFF, #cecece, #979697);
 }

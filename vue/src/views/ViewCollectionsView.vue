@@ -1,6 +1,6 @@
 <template>
     <div>
-        <view-collections/>
+        <view-collections />
 
     </div>
 </template>

@@ -3,7 +3,7 @@
         <search-bar/>
         <random-card/>
         <card-sets/>
-        <view-collections/>
+        <view-collections />
 
     </div>
 </template>
