@@ -12,7 +12,7 @@ public class RegisterUserDto {
     @NotEmpty
     private String username;
     @NotEmpty
-    private String emailAddress;
+    private String email;
     @NotEmpty
     private String password;
     @NotEmpty
@@ -24,12 +24,12 @@ public class RegisterUserDto {
         return username;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setUsername(String username) {

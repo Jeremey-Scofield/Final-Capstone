@@ -92,9 +92,6 @@ export default {
 }
 label {
   margin-right: 0.5rem;
-  
-  
-
 }
 
 .form-input-username >label{

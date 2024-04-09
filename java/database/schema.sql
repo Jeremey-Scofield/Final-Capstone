@@ -1,14 +1,8 @@
 BEGIN TRANSACTION;
 DROP TABLE IF EXISTS users;
-<<<<<<< HEAD
 DROP TABLE IF EXISTS card;
 DROP TABLE IF EXISTS collection;
-=======
 
-DROP TABLE IF EXISTS collection;
-DROP TABLE IF EXISTS card;
-
->>>>>>> 0d7e6cf057cbf66849e62987293eeb8a1ad93142
 
 CREATE TABLE users (
 	user_id SERIAL,

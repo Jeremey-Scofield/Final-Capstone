@@ -10,7 +10,7 @@ public class User {
 
    private int id;
    private String username;
-   private String emailAddress;
+   private String email;
    @JsonIgnore
    private String password;
    @JsonIgnore
@@ -19,10 +19,10 @@ public class User {
 
    public User() { }
 
-   public User(int id, String username, String emailAddress, String password, String authorities) {
+   public User(int id, String username, String email, String password, String authorities) {
       this.id = id;
       this.username = username;
-      this.emailAddress = emailAddress;
+      this.email = email;
       this.password = password;
       if (authorities != null) this.setAuthorities(authorities);
       this.activated = true;
@@ -30,6 +30,14 @@ public class User {
 
    public int getId() {
       return id;
+   }
+
+   public String getEmail() {
+      return email;
+   }
+
+   public void setEmail(String email) {
+      this.email = email;
    }
 
    public void setId(int id) {
@@ -84,20 +92,22 @@ public class User {
       return id == user.id &&
               activated == user.activated &&
               Objects.equals(username, user.username) &&
+              Objects.equals(email, user.email) &&
               Objects.equals(password, user.password) &&
               Objects.equals(authorities, user.authorities);
    }
 
    @Override
    public int hashCode() {
-      return Objects.hash(id, username, password, activated, authorities);
+      return Objects.hash(id, username, email, password, activated, authorities);
    }
 
    @Override
    public String toString() {
       return "User{" +
               "id=" + id +
-              ", username='" + username + '\'' +
+              ", username=" + username + '\'' +
+              ", email=" + email +
               ", activated=" + activated +
               ", authorities=" + authorities +
               '}';
