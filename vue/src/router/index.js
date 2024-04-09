@@ -58,9 +58,25 @@ const routes = [
     },
   },
   {
-    path: "/cards",
-    name: "card-sets",
-    component: HomeView,
+    path: "/collections:userid",
+    name: "view-my-collections",
+    component: ViewCollectionsView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/collections/create",
+    name: "create-collection",
+    component: ViewCollectionsView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/collections/modify",
+    name: "modify-collections",
+    component: ViewCollectionsView,
     meta: {
       requiresAuth: true,
     },
