@@ -1,6 +1,8 @@
 <template>
-    <div>
-        <search-bar/>
+    <div class="main">
+        <div class="search">
+           <search-bar/>
+        </div>
         <random-card/>
         <card-sets/>
         <view-collections />

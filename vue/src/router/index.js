@@ -7,6 +7,7 @@ import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import ViewCollectionsView from '../views/ViewCollectionsView.vue';
+import CardDetailsView from '../views/CardDetailsView.vue';
 
 
 /**
@@ -80,6 +81,14 @@ const routes = [
     component: ViewCollectionsView,
     meta: {
       requiresAuth: true,
+    },
+  },
+  {
+    path: '/card/:cardId',
+    name: 'CardDetails',
+    component: CardDetailsView,
+    meta: {
+      requiresAuth: false,
     },
   },
 ];
