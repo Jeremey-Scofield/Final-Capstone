@@ -1,6 +1,7 @@
 <template>
     <div class="randomCard" >
         <router-link v-bind:to="{name: 'RandomCard' }">
+        <img v-bind:src="card.image_uris.small"/>
         <h1>Random Card Goes Here</h1>
         <h1>{{ card.name }}</h1>
     </router-link>
