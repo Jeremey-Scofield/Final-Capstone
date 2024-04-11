@@ -4,8 +4,8 @@
             <label for="search">Search For A Card By Name: </label>
             <input type="text" id="search" v-model="search.card" />
         </div>
-        <div class="search-result-cards">
-            <div class="card" v-for="card in cards" v-bind:key="card.id" v-on:click="viewCardDetails(card)">
+        <div class="search-results" v-for="card in cards" v-bind:key="card.id" v-on:click="viewCardDetails(card)">
+            <div class="card" >
                 <h3>{{ card.name }}</h3>
                 <img v-bind:src="card.picture" class="picture" />
             </div>
@@ -15,11 +15,14 @@
 
 <script>
 export default {
-    props: ['name', 'cards'],
+    props: 
+      
+        ['name', 'cards'],
     methods: {
         viewCardDetails(card) {
             this.$router.push({ name: 'CardDetails', params: { cardId: card.id } });
-        }
+        },
+        
     },
     data() {
         return {

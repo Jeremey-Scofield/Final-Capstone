@@ -8,6 +8,7 @@ import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import ViewCollectionsView from '../views/ViewCollectionsView.vue';
 import CardDetailsView from '../views/CardDetailsView.vue';
+import RandomCard from '../components/RandomCard.vue';
 
 
 /**
@@ -84,9 +85,17 @@ const routes = [
     },
   },
   {
-    path: '/card/:cardId',
-    name: 'CardDetails',
+    path: "/card/:cardId",
+    name: "CardDetails",
     component: CardDetailsView,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/cards/random",
+    name: "RandomCard",
+    component: RandomCard,
     meta: {
       requiresAuth: false,
     },

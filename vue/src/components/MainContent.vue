@@ -3,7 +3,9 @@
         <div class="search">
            <search-bar/>
         </div>
-        <random-card/>
+        <div class="random">
+          <random-card/>
+        </div>
         <card-sets/>
         <view-collections />
 
