@@ -1,12 +1,14 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: 'https://api.scryfall.com'
+  baseURL: 'https://api.scryfall.com',
+  setApiRequestDelayTime: 500
 });
 
 export default {
-
-    list(string) {
+  
+  list(string) {
+    
       return http.get('/cards/search');
     },
     random() {
