@@ -1,8 +1,7 @@
 <template>
     <div class="randomCard" >
         <router-link v-bind:to="{name: 'RandomCard' }">
-        <h1>Random Card Goes Here</h1>
-        <h1>{{ card.name }}</h1>
+        <img v-bind:src="card.image_uris.small" />
     </router-link>
     </div>
 </template>
@@ -18,7 +17,6 @@ export default {
     };
   },
     created() {
-    
     CardService.random()
       .then(response => {
         this.card = response.data;
