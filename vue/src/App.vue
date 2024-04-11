@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style>
-.capstone-app {
+#capstone-app {
   font-family: "IM Fell DW Pica", serif;
   background: linear-gradient(to bottom right, #FFFFFF, #cecece, #979697);
 }
@@ -65,6 +65,7 @@ export default {
 #navBar {
   grid-area: navbar;
   border-style: solid;
+  align-self: stretch;
 }
 
 #mainContent {
@@ -76,7 +77,8 @@ export default {
 #ads {
   grid-area: ads;
   border-style: solid;
-  
+  align-self: stretch;
+  align-content: space-between;
 }
 
 #footer {
