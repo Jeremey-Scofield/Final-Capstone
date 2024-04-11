@@ -6,7 +6,7 @@ const http = axios.create({
 
 export default {
 
-    list(string) {
+    search(string) {
       return http.get('/cards/search');
     },
     random() {
