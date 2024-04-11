@@ -23,30 +23,27 @@
     row-gap: 20px;
     column-gap: 50px;
     flex-direction: row;
-    justify-content: space-around;
-   
-   
     
 }
 
 #ad1 {
     grid-area: ad1;
-    width: 50px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    
     
 }
 #ad2 {
     grid-area: ad2;
-    width: 50px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    
 }
 #ad3 {
     grid-area: ad3;
-    width: 50px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    
     
 }
 

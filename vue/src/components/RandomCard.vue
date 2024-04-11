@@ -3,7 +3,7 @@
         <router-link v-bind:to="{name: 'RandomCard' }">
 
         <img v-bind:src="card.image_uris.small"/>
-        <h1>Random Card Goes Here</h1>
+        
         <h1>{{ card.name }}</h1>
     </router-link>
 
@@ -34,6 +34,9 @@ export default {
         this.card = response.data;
         
       });
+  },
+     method() {
+      this.$router.push("/card/:cardId");
   }
 }
 
