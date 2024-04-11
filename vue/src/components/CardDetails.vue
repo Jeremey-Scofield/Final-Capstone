@@ -1,18 +1,8 @@
 <template>
-    <h1>Card Details View</h1>
-    <h2> These are the details of a single card.</h2>
-
-    <div class="card" v-bind:key="card.id">
-        <h3>{{ card.name }}</h3>
-        <img v-bind:src="card.picture" class="picture" />
-    </div>
-
-    
-    <p>***TODO: if you are logged in - add this card to one of your collections***</p>
     
     <h2>Card Details:</h2>
 
-    <table style="width:50%">
+    <table>
         <tr>
             <th>Card Name:</th>
             <td>{{ card.card_name }}</td>
@@ -50,7 +40,12 @@
 </template>
 
 <script>
+export default {
+    props: ['card']
+  
+  
 
+}
 
 </script>
 

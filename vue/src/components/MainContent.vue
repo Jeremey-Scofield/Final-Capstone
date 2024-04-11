@@ -6,8 +6,12 @@
         <div class="random">
           <random-card/>
         </div>
+        <div class="cardSets">
         <card-sets/>
+        </div>
+        <div class="collections">
         <view-collections />
+        </div>
 
     </div>
 </template>

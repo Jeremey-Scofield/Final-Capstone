@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.exception.DaoException;
 import com.techelevator.model.Card;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -11,18 +12,23 @@ import org.springframework.stereotype.Component;
 public class JdbcCardDao implements CardDao{
     private JdbcTemplate jdbcTemplate;
     @Override
-    public Card getCardId(int cardId) {
+    public Card getCard(int cardId) {
         return null;
     }
 
     @Override
     public Card addCard(Card newCard) {
         Card addedCard = null;
-        String sql = "Insert INTO collection (card) VALUES (?) RETURNING card_id";
+        String sql = "INSERT INTO public.card( " +
+                "card_name, manacost, colors, coloridentity, type, subtype, rarity, set, set_name, artist) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        //todo add image and text
         try {
-            int newCardId = jdbcTemplate.queryForObject(sql, int.class, cardId);
-            log.debug("created new Transfer with ID: " + newCardId);
-            addedCard = getCardId(newCardId);
+            int newCardId = jdbcTemplate.queryForObject(sql, int.class, addedCard.getCardName(), addedCard.getManaCost(), addedCard.getCardColor(), addedCard.getColorIdentity(),
+                    addedCard.getSubType(), addedCard.getSubType(), addedCard.getRarity(), addedCard.getSet(), addedCard.getSetName(), addedCard.getArtist());
+
+            addedCard = getCard(newCardId);
+
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
         } catch (DataIntegrityViolationException e) {

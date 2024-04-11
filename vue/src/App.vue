@@ -11,7 +11,6 @@
     </div>
 
     <div id="mainContent" class="mainContent">
-      
       <main-content />
     </div>
 
@@ -89,8 +88,8 @@ export default {
 #capstone-app {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
-    row-gap: 20px;
-    column-gap: 50px;
+    row-gap: 10px;
+    column-gap: 10px;
     align-items: center;
     grid-template-areas: 
         "header header header"
