@@ -6,10 +6,10 @@ import HomeView from '../views/HomeView.vue';
 import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
-import ViewCollectionsView from '../views/ViewCollectionsView.vue';
+import ViewCollections from '../components/ViewCollections.vue';
 import CardDetailsView from '../views/CardDetailsView.vue';
 import RandomCard from '../components/RandomCard.vue';
-
+import ViewCollectionsView from '../views/ViewCollectionsView.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -55,7 +55,7 @@ const routes = [
   {
     path: "/collections",
     name: "view-collections",
-    component: ViewCollectionsView,
+    component: ViewCollections,
     meta: {
       requiresAuth: false,
     },

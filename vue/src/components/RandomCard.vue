@@ -19,7 +19,7 @@
     </div>
   </router-link>
 
-  <!-- </div> -->
+ 
 </template>
 
 <script>
@@ -106,7 +106,7 @@ export default {
 }
 #title {
   font-size: 1.25em;
-  align-text: left;
+  
   padding: 0;
   margin: 0;
 }
