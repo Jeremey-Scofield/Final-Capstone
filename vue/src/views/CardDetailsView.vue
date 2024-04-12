@@ -12,7 +12,7 @@
     
     <h2>Card Details:</h2>
 
-    <table style="width:100%">
+    <table style="width:50%">
         <tr>
             <th>Card Name:</th>
             <td>{{ card.card_name }}</td>

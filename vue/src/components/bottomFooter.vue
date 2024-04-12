@@ -3,7 +3,8 @@
         <div class="copyright">
         <p>“[Title of your Fan Content] is unofficial Fan Content permitted under the Fan Content Policy. 
         Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.”</p>
-        </div>
+            ***Also credit Scryfall API too!!!***
+    </div>
     <div class="team-info">
         <h2>Tech Elevator Team Slytherin</h2>
         <img id="team-logo" src="src\images\team_slytherin_pic.jpeg"/>

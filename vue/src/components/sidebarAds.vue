@@ -20,8 +20,8 @@
 
 .sidebar-container {
     display: flex;
-    row-gap: 20px;
-    column-gap: 50px;
+    row-gap: 10px;
+    column-gap: 10px;
     flex-direction: row;
     
 }
