@@ -99,7 +99,7 @@ public class JdbcCollectionDao implements CollectionDao {
             card.setSubType(rs.getString("subtype"));
             card.setRarity(rs.getString("rarity"));
             card.setSet(rs.getString("set"));
-            card.setSetName(rs.getString("set_name"));
+            card.setSetName(rs.getString("set_name")); 
             card.setDescription(rs.getString("text"));
             card.setArtist((rs.getString("artist")));
             return card;

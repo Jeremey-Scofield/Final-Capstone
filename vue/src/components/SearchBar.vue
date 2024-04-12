@@ -7,12 +7,17 @@
         </div>
         <div class="search-results" v-bind:to="{ name: 'CardSearch' , params: {searchString}}">
             <div class="card" >
-                <h3>{{ results.data[0].name }}</h3>
+                <!-- <h3>{{ results.data[0].name }}</h3> -->
+                    <h3> {{results}} </h3>
+                <!-- TODO CURRENTLY BROKEN-->
+
+
+                
                 <!-- <img v-bind:src="card.picture" class="picture" /> -->
             </div>
         </div>
  
-</template>
+</template> 
 
 <script>
 import CardService from '../services/CardService';
