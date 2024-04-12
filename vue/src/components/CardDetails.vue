@@ -1,17 +1,19 @@
 <template>
     
-    <h2>Card Details:</h2>
+    <div id="detailsHeader">
+         <h2>Card Details:</h2>
+    </div>
 
     <table>
         <tr>
             <th>Card Name:</th>
-            <td>{{ card.card_name }}</td>
+            <td>{{ card.name }}</td>
             <th>Rarity:</th>
             <td>{{ card.rarity }}</td>
         </tr>
         <tr>
             <th>Mana Cost:</th>
-            <td>{{ card.manacost }}</td>
+            <td>{{ card.mana_cost }}</td>
             <th>Set:</th>
             <td>{{ card.set }}</td>
         </tr>
@@ -23,18 +25,20 @@
         </tr>
         <tr>
             <th>ColorIdentity:</th>
-            <td>{{ card.coloridentity }}</td>
+            <td>{{ card.color_identity }}</td>
             <th>Text:</th>
-            <td>{{ card.text }}</td>
+            <td>{{ card.oracle_text }}</td>
         </tr>
         <tr>
             <th>Type:</th>
-            <td>{{ card.type }}</td>
-        </tr><th>Artist:</th>
-            <td>{{ card.artist }}</td>
+            <td>{{ card.type_line }}</td>
+        
+            <th>Flavor Text:</th>
+            <td>{{ card.flavor_text }}</td>
+        </tr>
         <tr>
-            <th>Sub-Type:</th>
-            <td>{{ card.subtype }}</td>
+            <th>Artist:</th>
+            <td>{{ card.artist }}</td>
         </tr>
     </table>
 </template>

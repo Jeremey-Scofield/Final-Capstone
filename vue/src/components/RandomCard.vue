@@ -1,20 +1,25 @@
 <template>
-  <div id="randomCard">
-    <router-link v-bind:to="{ name: 'RandomCard' }">
-      <div id="cardPic">
+  <router-link v-bind:to="{ name: 'RandomCard' }">
+    
+
+    <div id="randomCard">
+      <div id="title">
+      <h1>Random Card:</h1>
+    </div>
+      <div id="cardPic" v-on:click="showCardDetails(true)">
         <img v-bind:src="card.image_uris.small" />
       </div>
       <div id="cardTitle">
         <h1>{{ card.name }}</h1>
       </div>
 
-      <div id="cardDetails">
+      <div id="cardDetails" v-show="showDetails">
         <card-details v-bind:card="this.card" />
       </div>
-      
-    </router-link>
+    </div>
+  </router-link>
 
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -23,11 +28,13 @@ import CardDetails from '../components/CardDetails.vue';
 
 
 export default {
-components: {
-  CardDetails,
-},
+  components: {
+    CardDetails,
+  },
   data() {
+    
     return {
+      showDetails: false,
       card: {
         name: '',
         image_uris: {
@@ -46,6 +53,11 @@ components: {
         this.card = response.data;
 
       });
+  },
+  methods: {
+    showCardDetails(value){
+      this.showDetails = value;
+    }
   }
 
 }
@@ -54,21 +66,48 @@ components: {
 
 <style scoped>
 #randomCard {
+  border-style: dashed;
+  border-color: aqua;
+
   display: grid;
-  grid-template-columns: 2fr 2fr;
-  grid-template-areas: 
-    "cardPic cardName"
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    "title title"
+    "cardName cardDetails"  
     "cardPic cardDetails";
     
+
 }
 #cardPic {
   grid-area: cardPic;
+  align-self: center;
+  justify-self: center;
+  padding: 0;
+  margin: 0;
+
 }
 #cardTitle {
   grid-area: cardName;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em;
+}
+#title {
+  grid-area: title;
+  align-items: start;
+  justify-items: start;
+}
+#cardTitle > h1 {
+  font-size: 1.2em;
+  
 }
 #cardDetails {
   grid-area: cardDetails;
 }
-
+#title {
+  font-size: 1.25em;
+  align-text: left;
+  padding: 0;
+  margin: 0;
+}
 </style>
