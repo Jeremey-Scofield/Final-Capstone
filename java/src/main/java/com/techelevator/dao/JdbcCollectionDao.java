@@ -56,4 +56,54 @@ public class JdbcCollectionDao implements CollectionDao {
         });
         return collections;
     }
+
+    public List<Card> getAllCardsByCollection(int collectionId) {
+        String sql = "SELECT c.* " +
+                "FROM card AS c " +
+                "INNER JOIN collection_cards AS cc ON c.card_id = cc.card_id " +
+                "WHERE cc.collection_id = ?"; // Use prepared statement for parameter
+        List<Card> cards = jdbcTemplate.query(sql, new Object[]{collectionId}, (rs, rowNum) -> {
+            Card card = new Card();
+            card.setCardId(rs.getInt("card_id"));
+            card.setCardName(rs.getString("card_name"));
+            card.setManaCost(rs.getString("manacost"));
+            card.setCardColor(rs.getString("colors"));
+            card.setColorIdentity(rs.getString("coloridentity"));
+            card.setCardType(rs.getString("type"));
+            card.setSubType(rs.getString("subtype"));
+            card.setRarity(rs.getString("rarity"));
+            card.setSet(rs.getString("set"));
+            card.setSetName(rs.getString("set_name"));
+            card.setDescription(rs.getString("text"));
+            card.setArtist((rs.getString("artist")));
+            return card;
+        });
+        return cards;
+    }
+
+
+    public List<Card> getAllCollectionsByUserId() {
+        return null;
+    }
+
+    public Card getCardByCardId(int cardId) {
+        String sql = "SELECT * FROM card WHERE card_id = ?";
+        Card retrievedCard = jdbcTemplate.queryForObject(sql, new Object[]{cardId}, (rs, rowNum) -> {
+            Card card = new Card();
+            card.setCardId(rs.getInt("card_id"));
+            card.setCardName(rs.getString("card_name"));
+            card.setManaCost(rs.getString("manacost"));
+            card.setCardColor(rs.getString("colors"));
+            card.setColorIdentity(rs.getString("coloridentity"));
+            card.setCardType(rs.getString("type"));
+            card.setSubType(rs.getString("subtype"));
+            card.setRarity(rs.getString("rarity"));
+            card.setSet(rs.getString("set"));
+            card.setSetName(rs.getString("set_name"));
+            card.setDescription(rs.getString("text"));
+            card.setArtist((rs.getString("artist")));
+            return card;
+        });
+        return retrievedCard;
+    }
 }
