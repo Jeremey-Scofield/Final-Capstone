@@ -3,6 +3,7 @@ package com.techelevator.services;
 import com.techelevator.dao.MtgCardRepository;
 import com.techelevator.model.MtgCard;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -20,35 +21,38 @@ public class MtgCardService {
         String url = "https://api.scryfall.com/cards/search?q={name}";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class, name);
 
-        String jsonString = response.getBody();
-        List<MtgCard> cards = new ArrayList<>();
+        if (response.getStatusCode() == HttpStatus.OK) {
+            String jsonString = response.getBody();
+            List<MtgCard> cards = new ArrayList<>();
 
-        // Assuming the response has a key "data" containing the card array
-        int startIndex = jsonString.indexOf("\"data\": [");
-        if (startIndex != -1) {
-            int endIndex = jsonString.indexOf("]", startIndex);
-            String cardArrayString = jsonString.substring(startIndex + 9, endIndex); // Extract the card array string
+            // Assuming the response has a key "data" containing the card array
+            int startIndex = jsonString.indexOf("\"data\": [");
+            if (startIndex != -1) {
+                int endIndex = jsonString.indexOf("]", startIndex);
+                String cardArrayString = jsonString.substring(startIndex + 9, endIndex); // Extract the card array string
 
-            // Iterate through each card object (assuming a simple JSON structure)
-            for (String cardString : cardArrayString.split("\\},")) {
-                String nameValue = getValueFromJson(cardString, "\"name\":");
-                String manaCostValue = getValueFromJson(cardString, "\"mana_cost\":");
-                String typeValue = getValueFromJson(cardString, "\"type_line\":");
-                String textValue = getValueFromJson(cardString, "\"oracle_text\":");
-                String powerValue = getValueFromJson(cardString, "\"power\":");
-                String toughnessValue = getValueFromJson(cardString, "\"toughness\":");
-                String setNameValue = getValueFromJson(cardString, "\"set_name\":");
-                String rarityValue = getValueFromJson(cardString, "\"rarity\":");
+                // Iterate through each card object (assuming a simple JSON structure)
+                for (String cardString : cardArrayString.split("\\},")) {
+                    String nameValue = getValueFromJson(cardString, "\"name\":");
+                    String manaCostValue = getValueFromJson(cardString, "\"mana_cost\":");
+                    String typeValue = getValueFromJson(cardString, "\"type_line\":");
+                    String textValue = getValueFromJson(cardString, "\"oracle_text\":");
+                    String powerValue = getValueFromJson(cardString, "\"power\":");
+                    String toughnessValue = getValueFromJson(cardString, "\"toughness\":");
+                    String setNameValue = getValueFromJson(cardString, "\"set_name\":");
+                    String rarityValue = getValueFromJson(cardString, "\"rarity\":");
 
-                System.out.println(nameValue);
-
-
-                MtgCard card = new MtgCard(nameValue, manaCostValue, typeValue, textValue, powerValue, toughnessValue, setNameValue, rarityValue);
-
-
-                cards.add(card);
+                    MtgCard card = new MtgCard(nameValue, manaCostValue, typeValue, textValue, powerValue, toughnessValue, setNameValue, rarityValue);
+                    cards.add(card);
+                }
             }
+            return cards;
+        } else {
+            // Handle unsuccessful response (e.g., log error, return empty list)
+            System.out.println("API call unsuccessful. Status code: " + response.getStatusCode());
+            return new ArrayList<>();
         }
+    }
 
         /*
         this.name = name;
@@ -201,9 +205,6 @@ public class MtgCardService {
             }
         },
          */
-
-        return cards;
-    }
 
     private String getValueFromJson(String jsonString, String key) {
         int keyIndex = jsonString.indexOf(key);

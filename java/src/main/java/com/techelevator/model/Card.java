@@ -3,7 +3,7 @@ package com.techelevator.model;
 public class Card {
     private int cardId;
     private String cardName;
-    private int manaCost;
+    private String manaCost;
     private String cardColor;
     private String colorIdentity;
     private String cardType;
@@ -14,7 +14,7 @@ public class Card {
     private String description;
     private String artist;
 
-    public Card(int cardId, String cardName, int manaCost, String cardColor, String colorIdentity, String cardType, String subType, String rarity, String set, String setName, String description, String artist) {
+    public Card(int cardId, String cardName, String manaCost, String cardColor, String colorIdentity, String cardType, String subType, String rarity, String set, String setName, String description, String artist) {
         this.cardId = cardId;
         this.cardName = cardName;
         this.manaCost = manaCost;
@@ -27,6 +27,10 @@ public class Card {
         this.setName = setName;
         this.description = description;
         this.artist = artist;
+    }
+
+    public Card() {
+
     }
 
     public int getCardId() {
@@ -45,11 +49,11 @@ public class Card {
         this.cardName = cardName;
     }
 
-    public int getManaCost() {
+    public String getManaCost() {
         return manaCost;
     }
 
-    public void setManaCost(int manaCost) {
+    public void setManaCost(String  manaCost) {
         this.manaCost = manaCost;
     }
 
