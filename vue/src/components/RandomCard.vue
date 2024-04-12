@@ -34,9 +34,6 @@ export default {
         this.card = response.data;
         
       });
-  },
-     method() {
-      this.$router.push("/card/:cardId");
   }
 }
 
