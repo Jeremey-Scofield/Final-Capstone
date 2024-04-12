@@ -10,6 +10,7 @@ import ViewCollections from '../components/ViewCollections.vue';
 import CardDetailsView from '../views/CardDetailsView.vue';
 import RandomCard from '../components/RandomCard.vue';
 import ViewCollectionsView from '../views/ViewCollectionsView.vue';
+import SearchResults from '../components/SearchResults.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -96,6 +97,14 @@ const routes = [
     path: "/cards/random",
     name: "RandomCard",
     component: RandomCard,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/cards/search?q=: 'string' ",
+    name: "CardSearch",
+    component: SearchResults,
     meta: {
       requiresAuth: false,
     },

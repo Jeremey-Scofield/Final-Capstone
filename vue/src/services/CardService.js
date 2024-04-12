@@ -7,9 +7,9 @@ const http = axios.create({
 
 export default {
   
-  list(string) {
+  cardSearch(string) {
     
-      return http.get('/cards/search');
+      return http.get(`/cards/search?q=${string}`);
     },
     random() {
         return http.get('/cards/random');
