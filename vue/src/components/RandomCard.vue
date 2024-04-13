@@ -1,5 +1,5 @@
 <template>
-  <router-link v-bind:to="{ name: 'RandomCard' }">
+  
     
 
     <div id="randomCard">
@@ -7,7 +7,7 @@
       <h1>Random Card:</h1>
     </div>
       <div id="cardPic" v-on:click="showCardDetails(true)">
-        <img v-bind:src="card.image_uris.small" />
+        <img v-bind:src="card.image_uris.small" v-bind:to="{ name: 'RandomCard' }"/>
       </div>
       <div id="cardTitle">
         <h1>{{ card.name }}</h1>
@@ -17,7 +17,7 @@
         <card-details v-bind:card="this.card" />
       </div>
     </div>
-  </router-link>
+ 
 
  
 </template>
