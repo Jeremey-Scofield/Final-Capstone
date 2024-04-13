@@ -15,7 +15,7 @@
                 
                 <!-- <img v-bind:src="card.picture" class="picture" /> -->
             </div>
-        </div>
+        </div> 
  
 </template> 
 

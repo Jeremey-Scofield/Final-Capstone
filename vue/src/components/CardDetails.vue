@@ -53,4 +53,11 @@ export default {
 
 </script>
 
-<style></style>
+<style>
+
+table, th, td {
+  border: 1px solid;
+}
+
+
+</style>

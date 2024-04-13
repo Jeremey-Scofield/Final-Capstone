@@ -27,7 +27,7 @@ import MagicCard from '../components/MagicCard.vue';
 export default {
 
 components: {
-    MagicCard
+     MagicCard
 },
 
 data() {
