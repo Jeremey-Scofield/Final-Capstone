@@ -80,7 +80,7 @@ export default {
 }
 #cardPic {
   grid-area: cardPic;
-  align-self: center;
+
   justify-self: center;
   padding: 0;
   margin: 0;
@@ -91,6 +91,7 @@ export default {
   padding: 0;
   margin: 0;
   font-size: 1.2em;
+  
 }
 #title {
   grid-area: title;

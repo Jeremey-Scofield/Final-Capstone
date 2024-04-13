@@ -5,12 +5,12 @@
             <input type="text" id="search" v-model="searchString" placeholder="search card name" />
             <p>Search String Is {{ searchString }}</p>
         </div>
-        <div class="search-results" v-bind:to="{ name: 'CardSearch' , params: {searchString}}">
+        <!-- <div class="search-results" v-bind:to="{ name: 'CardSearch' , params: {searchString}}">
             <div class="card" >
                 <h3>{{ results.data[0].name }}</h3>
-                <!-- <img v-bind:src="card.picture" class="picture" /> -->
+                 <img v-bind:src="card.picture" class="picture" /> 
             </div>
-        </div>
+        </div> -->
  
 </template>
 
