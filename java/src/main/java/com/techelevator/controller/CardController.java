@@ -16,33 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/collections")
-public class CollectionController {
+@RequestMapping("/card")
+public class CardController {
 
     @Autowired
     private CollectionDao collectionDao;
 
-
-    @GetMapping("/cards")
-    public ResponseEntity<List<Card>> getAllCards() {
-        List<Card> cards = collectionDao.getAllCards();
-        return ResponseEntity.ok(cards);
-    }
-
-    @GetMapping("")
-    public ResponseEntity<List<Collection>> getAllCollections() {
-        List<Collection> collections = collectionDao.getAllCollections();
-        return ResponseEntity.ok(collections);
-    }
-
     @GetMapping("/{id}")
-    public ResponseEntity<List<Card>> getAllCardsByCollectionId(@PathVariable("id") int collectionId) {
-        List<Card> cards = collectionDao.getAllCardsByCollection(collectionId);
+    public ResponseEntity<Card> getAllCardsByCollectionId(@PathVariable("id") int cardId) {
+        Card card = collectionDao.getCardByCardId(cardId);
 
-        if(cards == null) {
+        if(card == null) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(cards);
+            return ResponseEntity.ok(card);
         }
     }
 

@@ -36,6 +36,7 @@ CREATE TABLE card (
 CREATE TABLE collection (
   collection_id SERIAL UNIQUE,
   collection_name varchar(100) UNIQUE NOT NULL,
+
   CONSTRAINT unique_collection_name UNIQUE (collection_name)
 );
 
