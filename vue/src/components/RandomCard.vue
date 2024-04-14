@@ -5,7 +5,7 @@
     <div id="randomCard">
       <div id="title">
       <h1>Random Card:</h1>
-    </div>
+      </div>
       <div id="cardPic" v-on:click="showCardDetails(true)">
         <img v-bind:src="card.image_uris.small" v-bind:to="{ name: 'RandomCard' }"/>
       </div>

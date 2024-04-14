@@ -1,35 +1,31 @@
 <template>
-     <!-- <router-link v-bind:to="{ name: 'CardSearch' , params: {searchString}}"></router-link>  -->
+    <div id="searchContainer">
         <div class="form-input">
             <label for="search">Search For A Card By Name: </label>
-            <input type="text" id="search" v-model="searchString" placeholder="search card name" />
-            <p>Search String Is {{ searchString }}</p>
+            <input type="text" id="search" v-model="searchString" v-on:change="search()" placeholder="search card name" />
         </div>
-        <div class="search-results" v-bind:to="{ name: 'CardSearch' , params: {searchString}}">
-            <div class="card" >
-                <!-- <h3>{{ results.data[0].name }}</h3> -->
-                    <h3> {{results}} </h3>
-                <!-- TODO CURRENTLY BROKEN-->
+        <div class="search-results">
+            <div class="results-cards">
+                <card-front v-for="cardFront in limitedList" v-bind:cardFront="cardFront" v-bind:key="cardFront.name" />
 
 
-                
-                <!-- <img v-bind:src="card.picture" class="picture" /> -->
             </div>
-        </div> 
- 
+        </div>
+    </div>
 </template> 
 
 <script>
 import CardService from '../services/CardService';
-import CardDetails from '../components/CardDetails.vue';
+
+import CardFront from '../components/CardFront.vue';
+
 export default {
-    props: 
-      
+    components: {
+        CardFront
+    },
+    props:
         ['name', 'cards'],
     methods: {
-        viewCardDetails(card) {
-            this.$router.push({ name: 'CardDetails', params: { cardId: card.id } });
-        },
         search() {
             if (this.searchString) {
                 CardService.cardSearch(this.searchString)
@@ -38,25 +34,21 @@ export default {
                     });
             }
         }
-        
     },
     data() {
         return {
+            maxCards: 5,
             searchString: '',
             results:
-            {name: ''}
+                { data: [] }
         }
     },
-     created() {
-
-    // CardService.cardSearch()
-    //   .then(response => {
-    //       this.results = response.data;
-
-    //   });
-  },
+    computed: {
+        limitedList() {
+            return this.maxCards ? this.results.data.slice(0, this.maxCards) : this.results.data
+        }
+    },
 };
-
 </script>
 
 <style>
@@ -64,4 +56,20 @@ export default {
     margin-top: 25px;
     margin-bottom: 25px;
 }
+#searchContainer {
+    border-style: dashed;
+    border-color: rgb(253, 170, 45);
+}
+.search-results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+    
+}
+.results-cards {
+    display: flex;
+    
+}
+
 </style>
