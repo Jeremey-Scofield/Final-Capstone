@@ -4,7 +4,7 @@
       <div class="moreCollections" v-bind:to="{ name: 'userName' }">
         <h1 id="publicTitle">Viewable Card Collections</h1>
         <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
-          <h2 v-show="!showCards">View the {{ collection.collectionName }} collection </h2>
+          <h2 v-show="!showCards">View the {{ collection.collectionName }} collection from {{ collection.username }}</h2>
           <!-- <h2 v-bind="getUserName(collection.userId)">from user {{ user.username }}</h2> -->
         </div>
 
