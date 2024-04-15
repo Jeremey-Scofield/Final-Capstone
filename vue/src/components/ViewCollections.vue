@@ -1,22 +1,23 @@
 <template>
   <div id="collectionsContainer">
     <div class="publicCollections" v-bind:to="{ name: 'view-collections' }">
+      <!-- <div class="moreCollections" v-bind:to="{ name: 'userName' }"> -->
       <h1 id="publicTitle">Viewable Card Collections</h1>
       <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
-        <h2 v-show="!showCards">View the {{ collection.collectionName }} collection from userId {{ collection.userId }}</h2>
+        <h2 v-show="!showCards">View the {{ collection.collectionName }} collection from userId {{ user.username }}</h2>
       </div>
 
       <div id="cards" v-show="showCards">
         <!-- <card-front /> -->
 
       </div>
-
+    <!-- </div> -->
     </div>
 
 
 
-    <div class="userCollections">
-      <h1>**Logged-In User's Name's** collections</h1>
+    <div class="userCollections" v-bind:to="{ name: 'userName' }">
+      <h1>{{ this.$store.state.user.username }} Collections</h1>
       <p>My Collection 1</p>
       <p>My Collection 2</p>
     </div>
@@ -29,6 +30,7 @@
 <script>
 import CollectionService from '../services/CollectionService';
 import CardFront from '../components/CardFront.vue';
+import AuthService from '../services/AuthService';
 
 export default {
   components: {
@@ -37,6 +39,8 @@ export default {
 
   data() {
     return {
+      // userId: collection.userId,
+      user: {},
       showCards: false,
       collections:
         [{}]
@@ -47,6 +51,11 @@ export default {
     CollectionService.getAllCollections()
       .then(response => {
         this.collections = response.data;
+
+      }),
+      AuthService.getUserbyId(this.userId)
+      .then(response => {
+        this.user = response.data;
 
       });
   },

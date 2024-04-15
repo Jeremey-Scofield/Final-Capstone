@@ -11,6 +11,7 @@ import CardDetailsView from '../views/CardDetailsView.vue';
 import RandomCard from '../components/RandomCard.vue';
 import ViewCollectionsView from '../views/ViewCollectionsView.vue';
 import SearchResults from '../components/SearchResults.vue';
+import User from '../components/User.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -49,6 +50,14 @@ const routes = [
     path: "/register",
     name: "register",
     component: RegisterView,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/users/:userId",
+    name: "userName",
+    component: User,
     meta: {
       requiresAuth: false,
     },
