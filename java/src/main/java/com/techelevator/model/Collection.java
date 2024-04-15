@@ -7,6 +7,7 @@ public class Collection {
     private int userId;
     private String userName;
 
+<<<<<<< HEAD
     public Collection(String collectionName, int userId, String userName) {
         this.collectionName = collectionName;
         this.userId = userId;
@@ -19,6 +20,14 @@ public class Collection {
 
     public void setUserName(String userName) {
         this.userName = userName;
+=======
+    private String username;
+
+    public Collection(String collectionName, int userId, String username) {
+        this.collectionName = collectionName;
+        this.userId = userId;
+        this.username = username;
+>>>>>>> 3e1801bdd86c3a9e6794932f0290e068da56aef7
     }
 
     public Collection() {}
@@ -47,7 +56,15 @@ public class Collection {
         this.userId = userId;
     }
 
-//    public String getUserName() {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    //    public String getUserName() {
 //        return userName;
 //    }
 //

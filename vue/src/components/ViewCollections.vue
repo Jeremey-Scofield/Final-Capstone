@@ -16,16 +16,11 @@
       </div>
     </div>
 
-
-
     <div class="userCollections" v-bind:to="{ name: 'userName' }">
       <h1>{{ this.$store.state.user.username }}'s Collections</h1>
       <p>My Collection 1</p>
       <p>My Collection 2</p>
     </div>
-
-
-
   </div>
 </template>
 
@@ -69,13 +64,13 @@ export default {
       });
   }
 
-}
+  }
 
-</script>
+  </script>
 
-<style scoped>
-.collectionsContainer {
-  border-style: dashed;
-  border-color: rgb(252, 34, 26);
-}
-</style>
+  <style scoped>
+  .collectionsContainer {
+    border-style: dashed;
+    border-color: rgb(252, 34, 26);
+  }
+  </style>
