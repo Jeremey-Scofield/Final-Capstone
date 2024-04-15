@@ -9,6 +9,9 @@ export default {
   
   getAllCollections() {
       return http.get('/collections');
+    },
+    getCardsByCollectionsId(collectionId) {
+      return http.get(`/${collectionId}/cards`);
     }
     
   

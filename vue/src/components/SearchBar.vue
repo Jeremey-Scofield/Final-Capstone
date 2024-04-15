@@ -4,11 +4,10 @@
             <label for="search">Search For A Card By Name: </label>
             <input type="text" id="search" v-model="searchString" v-on:change="search()" placeholder="search card name" />
         </div>
+
         <div class="search-results">
             <div class="results-cards">
                 <card-front v-for="cardFront in limitedList" v-bind:cardFront="cardFront" v-bind:key="cardFront.name" />
-
-
             </div>
         </div>
     </div>
