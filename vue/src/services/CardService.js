@@ -8,11 +8,10 @@ const http = axios.create({
 export default {
   
   cardSearch(string) {
-    
       return http.get(`/cards/search?q=${string}`);
     },
-    random() {
-        return http.get('/cards/random');
+  random() {
+      return http.get('/cards/random');
       }
   
   }

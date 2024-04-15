@@ -1,56 +1,68 @@
 <template>
-    <router-link v-bind:to="{ name: 'view-collections' }"></router-link>
+  <div id="collectionsContainer">
+    <div class="publicCollections" v-bind:to="{ name: 'view-collections' }">
+      <h1 id="publicTitle">Viewable Card Collections</h1>
+      <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
+        <h2 v-show="!showCards">View the {{ collection.collectionName }} collection from userId {{ collection.userId }}</h2>
+      </div>
 
+      <div id="cards" v-show="showCards">
+        <!-- <card-front /> -->
 
-    <div class="publicCollections">
-        <h1>View Public Collections</h1>
-        <!-- <magic-card v-for="card in collection" v-bind:="card" v-bind:key="card_id" /> -->
-        <p>Collection 1</p>
-        <p>Collection 2</p>
-        <p>Collection 3</p>
-        <p>Collection 4</p>
-     <div class="myCollections" v-if="$store.state.token != ''">
-        <h1>MY collections</h1>
-         <p>My Collection 1</p>
-         <p>My Collection 2</p>
-    </div>
+      </div>
 
     </div>
 
 
 
+    <div class="userCollections">
+      <h1>**Logged-In User's Name's** collections</h1>
+      <p>My Collection 1</p>
+      <p>My Collection 2</p>
+    </div>
+
+
+
+  </div>
 </template>
 
 <script>
 import CollectionService from '../services/CollectionService';
-import MagicCard from '../components/MagicCard.vue';
+import CardFront from '../components/CardFront.vue';
+
 export default {
+  components: {
+    CardFront
+  },
 
-components: {
-     MagicCard
-},
-
-data() {
+  data() {
     return {
-  collection: { 
-    cards: ['card'],
-    collection_name: '',
-    collection_id: ''
-
+      showCards: false,
+      collections:
+        [{}]
     }
-  }
-},
-created() {
+  },
+  created() {
 
     CollectionService.getAllCollections()
-        .then(response => {
-        this.collection = response.data;
+      .then(response => {
+        this.collections = response.data;
 
       });
-}
+  },
+  methods: {
+    showCollectionCards(value) {
+      this.showCards = value;
+    }
+  }
 
 }
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.collectionsContainer {
+  border-style: dashed;
+  border-color: rgb(252, 34, 26);
+}
+</style>
