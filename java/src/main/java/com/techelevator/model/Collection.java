@@ -6,9 +6,12 @@ public class Collection {
     private String collectionName;
     private int userId;
 
-    public Collection(String collectionName, int userId) {
+    private String username;
+
+    public Collection(String collectionName, int userId, String username) {
         this.collectionName = collectionName;
         this.userId = userId;
+        this.username = username;
     }
 
     public Collection() {}
@@ -37,7 +40,15 @@ public class Collection {
         this.userId = userId;
     }
 
-//    public String getUserName() {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    //    public String getUserName() {
 //        return userName;
 //    }
 //
