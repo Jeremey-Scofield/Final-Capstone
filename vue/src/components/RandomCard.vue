@@ -1,4 +1,7 @@
 <template>
+  
+    
+
     <div id="randomCard">
       <div id="title">
       <h1>Random Card:</h1>
@@ -77,8 +80,8 @@ export default {
 }
 #cardPic {
   grid-area: cardPic;
-
-  justify-self: center;
+  align-items: start;
+  justify-items: start;
   padding: 0;
   margin: 0;
 
