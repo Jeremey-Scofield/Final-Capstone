@@ -8,7 +8,6 @@ const http = axios.create({
 export default {
   
   getAllCollections() {
-      
       return http.get('/collections');
     }
     

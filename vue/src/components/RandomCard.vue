@@ -1,7 +1,4 @@
 <template>
-  
-    
-
     <div id="randomCard">
       <div id="title">
       <h1>Random Card:</h1>

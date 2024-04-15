@@ -9,6 +9,7 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,8 +46,8 @@ public class JdbcCollectionDao implements CollectionDao {
     public Collection getCollectionById(int collectionId) {
         Collection collection = null;
         String sql = "SELECT collection_id, collection_name, user_id " +
-                     "FROM collections " +
-                     "WHERE collection_id = ?;";
+                "FROM collections " +
+                "WHERE collection_id = ?;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
             if (results.next()) {
@@ -140,7 +141,7 @@ public class JdbcCollectionDao implements CollectionDao {
     public int deleteCardFromCollection(int collectionId, String cardId) {
         int numberOfRows = 0;
         String sql = "DELETE FROM public.collection_cards " +
-                    "WHERE collection_id = ? AND card_id = ?;";
+                "WHERE collection_id = ? AND card_id = ?;";
         try {
             numberOfRows = jdbcTemplate.update(sql, collectionId, cardId);
         } catch (CannotGetJdbcConnectionException e) {

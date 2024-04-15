@@ -16,7 +16,6 @@
 
 <script>
 import CardService from '../services/CardService';
-
 import CardFront from '../components/CardFront.vue';
 
 export default {
