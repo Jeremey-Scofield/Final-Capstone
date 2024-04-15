@@ -7,18 +7,13 @@
         </div>
         <!-- <div class="search-results" v-bind:to="{ name: 'CardSearch' , params: {searchString}}">
             <div class="card" >
-<<<<<<< HEAD
-                <h3>{{ results.data[0].name }}</h3>
-                 <img v-bind:src="card.picture" class="picture" /> 
-=======
-                <!-- <h3>{{ results.data[0].name }}</h3> -->
+                 <h3>{{ results.data[0].name }}</h3> -->
                     <h3> {{results}} </h3>
                 <!-- TODO CURRENTLY BROKEN-->
 
 
                 
-                <!-- <img v-bind:src="card.picture" class="picture" /> -->
->>>>>>> 28e7b463077c296be333f9bdddb87a5636719cc4
+                <!-- <img v-bind:src="card.picture" class="picture" /> 
             </div>
         </div> -->
  
