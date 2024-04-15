@@ -6,9 +6,7 @@
         <div class="random">
           <random-card/>
         </div>
-        <div class="cardSets">
-        <card-sets/>
-        </div>
+        
         <div class="collections">
         <view-collections />
         </div>
@@ -20,14 +18,12 @@
 
 import SearchBar from "../components/SearchBar.vue";
 import RandomCard from "../components/RandomCard.vue";
-import CardSets from "../components/CardSets.vue";
 import ViewCollections from "../components/ViewCollections.vue";
 
 export default {
   components: {
         SearchBar,
         RandomCard,
-        CardSets,
         ViewCollections
   }
 

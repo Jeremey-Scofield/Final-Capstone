@@ -1,51 +1,62 @@
 package com.techelevator.controller;
 
-import com.techelevator.dao.CardDao;
 import com.techelevator.dao.CollectionDao;
-import com.techelevator.model.Card;
 import com.techelevator.model.Collection;
+import com.techelevator.model.CollectionCard;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/collections")
 public class CollectionController {
 
     @Autowired
     private CollectionDao collectionDao;
 
-
-    @GetMapping("/cards")
-    public ResponseEntity<List<Card>> getAllCards() {
-        List<Card> cards = collectionDao.getAllCards();
-        return ResponseEntity.ok(cards);
+    @RequestMapping(path = "", method = RequestMethod.GET)
+    public List<Collection> getAllCollections() {
+        return collectionDao.getAllCollections();
     }
 
-    @GetMapping("")
-    public ResponseEntity<List<Collection>> getAllCollections() {
-        List<Collection> collections = collectionDao.getAllCollections();
-        return ResponseEntity.ok(collections);
+    @RequestMapping(path = "/{collectionId}", method = RequestMethod.GET)
+    public Collection getCollectionId(@PathVariable int collectionId) {
+        return collectionDao.getCollectionById(collectionId);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<List<Card>> getAllCardsByCollectionId(@PathVariable("id") int collectionId) {
-        List<Card> cards = collectionDao.getAllCardsByCollection(collectionId);
-
-        if(cards == null) {
-            return ResponseEntity.notFound().build();
-        } else {
-            return ResponseEntity.ok(cards);
-        }
+    @RequestMapping(path = "/user/{userId}", method = RequestMethod.GET)
+    public List<Collection> getCollectionsByUserId(@PathVariable int userId) {
+        return collectionDao.getCollectionsByUserId(userId);
     }
 
+    @RequestMapping(path = "/{collectionId}/cards", method = RequestMethod.GET)
+    public List<String> getCardsByCollectionsId(@PathVariable int collectionId) {
+        return collectionDao.getCardsByCollectionId(collectionId);
+    }
 
+    @RequestMapping(path = "/new", method = RequestMethod.POST)
+    public Collection createCollection(@RequestBody Collection collection) {
+        return collectionDao.createCollection(collection);
+    }
 
+    @RequestMapping(path = "/cards/new", method = RequestMethod.POST)
+    public void addCardToCollection(@RequestBody CollectionCard card) {
+        collectionDao.addCardToCollection(card.getCollectionId(), card.getCardId());
+    }
+
+    @RequestMapping(path = "/cards/delete", method = RequestMethod.DELETE)
+    public void deleteCard(@RequestBody CollectionCard card) {
+        collectionDao.deleteCardFromCollection(card.getCollectionId(), card.getCardId());
+    }
+
+    @RequestMapping(path = "/delete/{collectionId}", method = RequestMethod.DELETE)
+    public void deleteCollection(@PathVariable int collectionId) {
+        collectionDao.deleteCollection(collectionId);
+    }
 }
