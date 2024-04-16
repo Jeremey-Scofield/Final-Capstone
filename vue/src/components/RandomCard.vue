@@ -69,7 +69,7 @@ export default {
     },
 
     toggleDropdown() {
-      //  TODO create method to change button options and add/remove from collection
+     
       this.showCollection = !this.showCollection;
     },
   },
