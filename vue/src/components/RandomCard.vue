@@ -9,12 +9,7 @@
         v-bind:alt="card.name"
         v-bind:to="{ name: 'RandomCard' }"
       />
-      <!-- Adding in option button to toggle add/remove from collection -->
-      <input
-        type="button"
-        value="Add To Collection"
-        v-on:click="toggleCollection"
-      />
+      
     </div>
     <div id="cardTitle">
       <h1>{{ card.name }}</h1>
@@ -24,6 +19,17 @@
       <card-details v-bind:card="this.card" />
     </div>
   </div>
+  <div>
+        <button v-on:click="toggleDropdown">Add To Collection</button>
+        <select v-model="selectedOption" :items="options" v-if="showCollection">
+          <option
+            v-for="option in options"
+            :key="option"
+          >
+            {{ option }}
+          </option>
+        </select>
+      </div>
 </template>
 
 <script>
@@ -45,7 +51,12 @@ export default {
           large: "",
         },
       },
+      showCollection: false,
+      selectedOption: null,
+      options: ['test1', 'test2'],
+      
     };
+    
   },
   created() {
     CardService.random().then((response) => {
@@ -57,9 +68,9 @@ export default {
       this.showDetails = value;
     },
 
-    toggleCollection() {
+    toggleDropdown() {
       //  TODO create method to change button options and add/remove from collection
-      
+      this.showCollection = !this.showCollection;
     },
   },
 };
@@ -79,8 +90,8 @@ export default {
 }
 #cardPic {
   grid-area: cardPic;
-  align-items: start;
-  justify-items: start;
+  display: flex;
+  flex-direction: column;
   padding: 0;
   margin: 0;
 }
