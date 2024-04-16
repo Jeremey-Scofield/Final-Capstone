@@ -6,7 +6,7 @@
       <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
         <h2>View the {{ collection.collectionName }} collection from {{ collection.username }}</h2>
         <router-link v-bind:to="{ name: 'get-cards-in-collection' }">Link to cards in this collection</router-link>
-        <router-view />
+        
       </div>
     </div>
 
