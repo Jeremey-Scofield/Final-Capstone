@@ -111,6 +111,14 @@ const routes = [
       requiresAuth: false,
     },
   },
+  {
+    path: "/cards/new",
+    name: "AddCard",
+    component: SearchResults,
+    meta: {
+      requiresAuth: false,
+    },
+  },
 ];
 
 // Create the router

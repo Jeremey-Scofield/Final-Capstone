@@ -4,50 +4,62 @@
 	<p>Currently selected collection: <span>{{activeCollection}}</span></p>
 </div>
     <div>
-		<button @click='toggleShow' class='anchor'>Add To Collection</button>
-		<div v-if='showMenu' class='menu'>
-			<div class='menu-item' v-for='item in this.items' @click='itemClicked(item)'>{{item}}</div>
-		</div>
+		<button v-on:click="toggleDropdown">Add To Collection</button>
+        <select v-model="selectedOption" :items="options" v-if="showCollection">
+          <option
+            v-for="option in options"
+            :key="option"
+          >
+            {{ option }}
+          </option>
+        </select>
 	</div>
+    </template>
 
     <script>
-	data: function() {
-		return {
-			showMenu: false
-		}
-	},
-	props: {
-		onClick: 'function',
-		items: {
-			type: 'Object',
-			default: []
-		}
-	},
-	methods: {
-		toggleShow: function() {
-			this.showMenu = !this.showMenu;
-		},
-		itemClicked: function(item) {
-			this.toggleShow();
-			this.onClick(item);
-		}
-	}
-const app = new Vue({
-	el: '#random-card',
-	data: {
-		activeCollection: 'Collection 1',
-		collection: [
-			'Collection 1',
-			'Collection 2',
-			'Collection 3',
-			'Collection 4'
-		]
-	},
-	methods: {
-		changeCollection: function(collection) {
-			this.activeCollection = collection;
-		}
-	}
-})
-</script>
-</template> -->
+    export default {
+        data: function () {
+            return {
+                showMenu: false,
+                activeCollection: 'Collection 1',
+                collection: [
+                    'Collection 1',
+                    'Collection 2',
+                    'Collection 3',
+                    'Collection 4'
+                ]
+            }
+        },
+        props: {
+            onClick: function,
+            items: {
+                type: Object,
+                default: []
+            }
+        },
+        methods: {
+            toggleShow: function () {
+                this.showMenu = !this.showMenu;
+            },
+            changeCollection: function (collection) {
+                this.activeCollection = collection;
+            },
+            itemClicked: function (item) {
+                this.toggleShow();
+                this.onClick(item);
+            }
+        }
+    }
+        // const app = new Vue({
+        //             el: '#random-card',
+        // data: {
+
+        // },
+//         methods: {
+           
+//         }
+// }
+
+    //     })
+    // }
+</script> -->
