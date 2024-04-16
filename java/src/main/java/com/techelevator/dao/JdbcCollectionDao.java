@@ -51,7 +51,7 @@ public class JdbcCollectionDao implements CollectionDao {
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
             if (results.next()) {
-                collection = mapRowtoCollection(results);
+                collection = mapRowtoCollectionnoUsername(results);
             }
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
@@ -70,7 +70,7 @@ public class JdbcCollectionDao implements CollectionDao {
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
             while (results.next()) {
-                Collection collectionResult = mapRowtoCollection(results);
+                Collection collectionResult = mapRowtoCollectionnoUsername(results);
                 collections.add(collectionResult);
             }
         } catch (CannotGetJdbcConnectionException e) {
@@ -180,6 +180,16 @@ public class JdbcCollectionDao implements CollectionDao {
         collection.setCollectionName(row.getString("collection_name"));
         collection.setUserId(row.getInt("user_id"));
         collection.setUsername(row.getString("username"));
+
+
+        return collection;
+    }
+
+    private Collection mapRowtoCollectionnoUsername(SqlRowSet row) {
+        Collection collection = new Collection();
+        collection.setCollectionId(row.getInt("collection_id"));
+        collection.setCollectionName(row.getString("collection_name"));
+        collection.setUserId(row.getInt("user_id"));
 
 
         return collection;
