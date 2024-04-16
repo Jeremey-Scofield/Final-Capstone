@@ -1,19 +1,13 @@
 <template>
   <div id="collectionsContainer">
     <div class="publicCollections" v-bind:to="{ name: 'view-collections' }">
-      
-        <h1 id="publicTitle">Viewable Card Collections</h1>
-        <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
-          <h2>View the {{ collection.collectionName }} collection from {{ collection.username }}</h2>
-          <card-front v-for="cardFront in cardCollection" v-bind:cardFront="cardFront" v-bind:key="cardFront.name" />
-        </div>
 
-        <div id="cards">
-          
-          
-
-        </div>
-      
+      <h1 id="publicTitle">Viewable Card Collections</h1>
+      <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
+        <h2>View the {{ collection.collectionName }} collection from {{ collection.username }}</h2>
+        <router-link v-bind:to="{ name: 'get-cards-in-collection' }">Link to cards in this collection</router-link>
+        <router-view />
+      </div>
     </div>
 
     <div class="userCollections" v-bind:to="{ name: 'userName' }">
@@ -26,20 +20,20 @@
 
 <script>
 import CollectionService from '../services/CollectionService';
-import CardFront from '../components/CardFront.vue';
+
 
 
 export default {
-  components: {
-    CardFront
-  },
   props:
-        ['name', 'cards'],
+    [],
+  components: {
+
+  },
   data() {
     return {
       cardCollection: [],
-      
-      
+
+
       collections:
         [{}]
     }
@@ -54,22 +48,22 @@ export default {
 
   },
   methods: {
-    
-    getCardsByCollectionsId(collectionId){
+
+    getCardsByCollectionsId(collectionId) {
       CollectionService.getCardsByCollectionsId(this.collections.collectionId)
-      .then(response => {
-        this.cardCollection = response.data;
-      });
+        .then(response => {
+          this.cardCollection = response.data;
+        });
     }
   }
 
-  }
+}
 
-  </script>
+</script>
 
-  <style scoped>
-  .collectionsContainer {
-    border-style: dashed;
-    border-color: rgb(252, 34, 26);
-  }
-  </style>
+<style scoped>
+.collectionsContainer {
+  border-style: dashed;
+  border-color: rgb(252, 34, 26);
+}
+</style>
