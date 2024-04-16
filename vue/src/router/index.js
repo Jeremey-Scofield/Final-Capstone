@@ -55,14 +55,6 @@ const routes = [
     },
   },
   {
-    path: "/users/:userId",
-    name: "userName",
-    component: ViewCollections,
-    meta: {
-      requiresAuth: false,
-    },
-  },
-  {
     path: "/collections",
     name: "view-collections",
     component: ViewCollections,

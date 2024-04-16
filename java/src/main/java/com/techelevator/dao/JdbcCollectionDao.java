@@ -26,6 +26,7 @@ public class JdbcCollectionDao implements CollectionDao {
     @Override
     public List<Collection> getAllCollections() {
         List<Collection> collections = new ArrayList<>();
+
         String sql = "SELECT collection_id, collection_name, users.user_id, username FROM collections JOIN users ON collections.user_id = users.user_id;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -179,6 +180,7 @@ public class JdbcCollectionDao implements CollectionDao {
         collection.setCollectionName(row.getString("collection_name"));
         collection.setUserId(row.getInt("user_id"));
         collection.setUsername(row.getString("username"));
+
 
         return collection;
     }

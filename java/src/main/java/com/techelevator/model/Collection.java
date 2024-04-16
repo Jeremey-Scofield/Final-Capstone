@@ -5,13 +5,12 @@ public class Collection {
     private int collectionId;
     private String collectionName;
     private int userId;
-
     private String username;
 
     public Collection(String collectionName, int userId, String username) {
         this.collectionName = collectionName;
         this.userId = userId;
-        this.username = username;
+        this.username= username;
     }
 
     public Collection() {}
@@ -48,11 +47,4 @@ public class Collection {
         this.username = username;
     }
 
-    //    public String getUserName() {
-//        return userName;
-//    }
-//
-//    public void setUserName(String userName) {
-//        this.userName = userName;
-//    }
 }

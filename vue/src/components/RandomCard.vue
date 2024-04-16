@@ -1,67 +1,68 @@
 <template>
-  
-    
-
-    <div id="randomCard">
-      <div id="title">
+  <div id="randomCard">
+    <div id="title">
       <h1>Random Card:</h1>
-      </div>
-      <div id="cardPic" v-on:click="showCardDetails(true)">
-        <img v-bind:src="card.image_uris.small" v-bind:to="{ name: 'RandomCard' }"/>
-      </div>
-      <div id="cardTitle">
-        <h1>{{ card.name }}</h1>
-      </div>
-
-      <div id="cardDetails" v-show="showDetails">
-        <card-details v-bind:card="this.card" />
-      </div>
     </div>
- 
+    <div id="cardPic" v-on:click="showCardDetails(true)">
+      <img
+        v-bind:src="card.image_uris.small"
+        v-bind:alt="card.name"
+        v-bind:to="{ name: 'RandomCard' }"
+      />
+      <!-- Adding in option button to toggle add/remove from collection -->
+      <input
+        type="button"
+        value="Add To Collection"
+        v-on:click="toggleCollection"
+      />
+    </div>
+    <div id="cardTitle">
+      <h1>{{ card.name }}</h1>
+    </div>
 
- 
+    <div id="cardDetails" v-show="showDetails">
+      <card-details v-bind:card="this.card" />
+    </div>
+  </div>
 </template>
 
 <script>
-import CardService from '../services/CardService';
-import CardDetails from '../components/CardDetails.vue';
-
+import CardService from "../services/CardService";
+import CardDetails from "../components/CardDetails.vue";
 
 export default {
   components: {
     CardDetails,
   },
   data() {
-    
     return {
       showDetails: false,
       card: {
-        name: '',
+        name: "",
         image_uris: {
-          small: '',
-          normal: '',
-          large: ''
-        }
+          small: "",
+          normal: "",
+          large: "",
+        },
       },
-
     };
   },
   created() {
-
-    CardService.random()
-      .then(response => {
-        this.card = response.data;
-
-      });
+    CardService.random().then((response) => {
+      this.card = response.data;
+    });
   },
   methods: {
-    showCardDetails(value){
+    showCardDetails(value) {
       this.showDetails = value;
-    }
-  }
+    },
 
-}
-
+    toggleCollection() {
+      //  TODO create method to change button options and add/remove from collection
+      
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -73,10 +74,8 @@ export default {
   grid-template-columns: 1fr 2fr;
   grid-template-areas:
     "title title"
-    "cardName cardDetails"  
+    "cardName cardDetails"
     "cardPic cardDetails";
-    
-
 }
 #cardPic {
   grid-area: cardPic;
@@ -84,14 +83,12 @@ export default {
   justify-items: start;
   padding: 0;
   margin: 0;
-
 }
 #cardTitle {
   grid-area: cardName;
   padding: 0;
   margin: 0;
   font-size: 1.2em;
-  
 }
 #title {
   grid-area: title;
@@ -100,14 +97,13 @@ export default {
 }
 #cardTitle > h1 {
   font-size: 1.2em;
-  
 }
 #cardDetails {
   grid-area: cardDetails;
 }
 #title {
   font-size: 1.25em;
-  
+
   padding: 0;
   margin: 0;
 }

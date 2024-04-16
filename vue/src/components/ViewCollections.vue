@@ -1,29 +1,19 @@
 <template>
   <div id="collectionsContainer">
     <div class="publicCollections" v-bind:to="{ name: 'view-collections' }">
-<<<<<<< HEAD
-      <h1 id="publicTitle">Viewable Card Collections</h1>
-      <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
-        <h2 v-show="!showCards"> View the {{ collection.collectionName }} collection from userId {{ collection.username }}</h2>
-      </div>
-
-      <div id="cards" v-show="showCards">
-        </div>
-=======
-      <div class="moreCollections" v-bind:to="{ name: 'userName' }">
+      
         <h1 id="publicTitle">Viewable Card Collections</h1>
         <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
-          <h2 v-show="!showCards">View the {{ collection.collectionName }} collection </h2>
-          <!-- <h2 v-bind="getUserName(collection.userId)">from user {{ user.username }}</h2> -->
+          <h2>View the {{ collection.collectionName }} collection from {{ collection.username }}</h2>
+          <card-front v-for="cardFront in cardCollection" v-bind:cardFront="cardFront" v-bind:key="cardFront.name" />
         </div>
 
-        <div id="cards" v-show="showCards">
-          <!-- <card-front /> -->
-          <!-- <card-front v-for="cardFront in cards" v-bind:cardFront="cardFront" v-bind:key="cardFront.name" /> -->
+        <div id="cards">
+          
+          
 
         </div>
-      </div>
->>>>>>> a927845f7de7a6a7a024120e7e4824245e9bd7b5
+      
     </div>
 
     <div class="userCollections" v-bind:to="{ name: 'userName' }">
@@ -34,64 +24,22 @@
   </div>
 </template>
 
-<<<<<<< HEAD
-  <script>
-  import CollectionService from '../services/CollectionService';
-  import CardFront from '../components/CardFront.vue';
-  import AuthService from '../services/AuthService';
-
-  export default {
-    components: {
-      CardFront
-    },
-
-    data() {
-      return {
-        // userId: collection.userId,
-        user: {},
-        showCards: false,
-        collections:
-          [{}]
-      }
-    },
-    created() {
-
-      CollectionService.getAllCollections()
-        .then(response => {
-          this.collections = response.data;
-
-        })
-    },
-    methods: {
-      showCollectionCards(value) {
-        this.showCards = value;
-      },
-      getUserById(userId) {
-      AuthService.getUserbyId(userId) // Assuming AuthService provides getUserbyId
-        .then(response => {
-          this.user = response.data;
-        })
-        .catch(error => {
-          console.error('Error fetching user:', error);
-        });
-    }
-    }
-=======
 <script>
 import CollectionService from '../services/CollectionService';
 import CardFront from '../components/CardFront.vue';
-import AuthService from '../services/AuthService';
+
 
 export default {
   components: {
     CardFront
   },
-
+  props:
+        ['name', 'cards'],
   data() {
     return {
-     
-      user: {},
-      showCards: false,
+      cardCollection: [],
+      
+      
       collections:
         [{}]
     }
@@ -106,17 +54,14 @@ export default {
 
   },
   methods: {
-    showCollectionCards(value) {
-      this.showCards = value;
-    }
-  },
-  getUserName(userId) {
-    AuthService.getUserbyId(this.collections.userId)
+    
+    getCardsByCollectionsId(collectionId){
+      CollectionService.getCardsByCollectionsId(this.collections.collectionId)
       .then(response => {
-        this.user = response.data;
+        this.cardCollection = response.data;
       });
+    }
   }
->>>>>>> a927845f7de7a6a7a024120e7e4824245e9bd7b5
 
   }
 
