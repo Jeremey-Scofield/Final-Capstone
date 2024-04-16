@@ -7,7 +7,7 @@
   <br />
   <router-link v-bind:to="{ name: 'create-collection' }" >Create A Collection</router-link>
   <br />
-  <router-link v-bind:to="{ name: 'modify-collections' }" >Modify Collections</router-link>
+  
 
 </div>
 </template> 

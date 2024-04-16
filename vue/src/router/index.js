@@ -11,7 +11,8 @@ import CardDetailsView from '../views/CardDetailsView.vue';
 import RandomCard from '../components/RandomCard.vue';
 import ViewCollectionsView from '../views/ViewCollectionsView.vue';
 import SearchResults from '../components/SearchResults.vue';
-import User from '../components/User.vue';
+import CreateCollectionView from '../views/CreateCollectionView.vue'
+import ViewMyCollectionsView from '../views/ViewMyCollectionsView.vue'
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -63,9 +64,9 @@ const routes = [
     },
   },
   {
-    path: "/collections",
+    path: "/mycollections",
     name: "view-my-collections",
-    component: ViewCollectionsView,
+    component: ViewMyCollectionsView,
     meta: {
       requiresAuth: true,
     },
@@ -73,17 +74,17 @@ const routes = [
   {
     path: "/collections/create",
     name: "create-collection",
-    component: ViewCollectionsView,
+    component: CreateCollectionView,
     meta: {
       requiresAuth: true,
     },
   },
   {
-    path: "/collections/modify",
-    name: "modify-collections",
+    path: "/collections/cards",
+    name: "get-cards-in-collection",
     component: ViewCollectionsView,
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
     },
   },
   {
