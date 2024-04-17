@@ -58,39 +58,39 @@ export default {
 
 #header {
   grid-area: header;
-  border-style: solid;
+
 }
 
 #navBar {
   grid-area: navbar;
-  border-style: solid;
+  
   align-self: stretch;
 }
 
 #mainContent {
   grid-area: mainContent;
-  text-align: center;
-  border-style: solid;
+  
+ 
 }
 
 #ads {
   grid-area: ads;
-  border-style: solid;
+  
   align-self: stretch;
   align-content: space-between;
 }
 
 #footer {
   grid-area: footer;
-  border-style: solid;
+
 }
 
 #capstone-app {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
-    row-gap: 10px;
-    column-gap: 10px;
-    align-items: center;
+    row-gap: 5px;
+    column-gap: 5px;
+    
     grid-template-areas: 
         "header header header"
         "navbar mainContent ads"

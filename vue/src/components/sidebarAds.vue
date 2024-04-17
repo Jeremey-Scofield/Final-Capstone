@@ -16,7 +16,7 @@
 
 </script>
 
-<style>
+<style scoped>
 
 .sidebar-container {
     display: flex;
@@ -24,6 +24,7 @@
     column-gap: 10px;
     flex-direction: row;
     
+  
 }
 
 #ad1 {

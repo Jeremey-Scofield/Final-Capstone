@@ -36,7 +36,7 @@
 
 <script></script>
 
-<style>
+<style scoped>
 .footer-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
