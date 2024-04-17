@@ -2,12 +2,12 @@
   <div class="footer-container">
     <div class="copyright">
       <p>
-        “[Title of your Fan Content] is unofficial Fan Content permitted under
+        “Magic: The Gathering Slytherin Card Collector is unofficial Fan Content permitted under
         the Fan Content Policy. Not approved/endorsed by Wizards. Portions of
         the materials used are property of Wizards of the Coast. ©Wizards of the
         Coast LLC.”
       </p>
-      ***Also credit Scryfall API too!!!***
+      <p>Magic: The Gathering Slytherin Card Collector is powered by the Scryfall LLC API.</p>
     </div>
     <div class="team-info">
       <h2>Tech Elevator Team Slytherin</h2>
@@ -49,7 +49,7 @@
   grid-area: copyright;
   font-size: 0.75em;
   font-style: italic;
-  color: hotpink;
+  color: rgb(165, 164, 165);
   padding: 5px;
 }
 

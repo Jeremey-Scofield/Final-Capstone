@@ -53,7 +53,11 @@ export default {
 <style>
 #capstone-app {
   font-family: "IM Fell DW Pica", serif;
+<<<<<<< HEAD
   background: linear-gradient(to bottom right, #FFFFFF, #cecece, #969797);
+=======
+  background: linear-gradient(to bottom right, #FFFFFF, #dfdfdf, #737474a6);
+>>>>>>> 26c23ec9aa6a22e01202b1bc00c81b6ad670b36a
 }
 
 #header {

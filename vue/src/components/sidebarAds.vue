@@ -29,20 +29,20 @@
 
 #ad1 {
     grid-area: ad1;
-    width: 100%;
+    width: 75%;
     display: flex;
     
     
 }
 #ad2 {
     grid-area: ad2;
-    width: 100%;
+    width: 75%;
     display: flex;
     
 }
 #ad3 {
     grid-area: ad3;
-    width: 100%;
+    width: 75%;
     display: flex;
     
     
