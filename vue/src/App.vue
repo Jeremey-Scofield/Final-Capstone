@@ -75,9 +75,8 @@ export default {
 
 #ads {
   grid-area: ads;
+  align-content: space-around;
   
-  align-self: stretch;
-  align-content: space-between;
 }
 
 #footer {
@@ -87,7 +86,7 @@ export default {
 
 #capstone-app {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 4fr .5fr;
     row-gap: 5px;
     column-gap: 5px;
     

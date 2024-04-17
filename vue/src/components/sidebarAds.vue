@@ -18,30 +18,24 @@
 
 <style scoped>
 
-.sidebar-container {
+.ads {
     display: flex;
-    row-gap: 10px;
-    column-gap: 10px;
-    flex-direction: row;
+    flex-direction: column;
     
-  
 }
 
 #ad1 {
-    grid-area: ad1;
-    width: 75%;
+    width: 50%;
     display: flex;
     
     
 }
 #ad2 {
-    grid-area: ad2;
     width: 75%;
     display: flex;
     
 }
 #ad3 {
-    grid-area: ad3;
     width: 75%;
     display: flex;
     
