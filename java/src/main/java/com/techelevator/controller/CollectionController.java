@@ -53,6 +53,11 @@ public class CollectionController {
         collectionDao.deleteCardFromCollection(card.getCollectionId(), card.getCardId());
     }
 
+    @RequestMapping(path = "/cards/delete", method = RequestMethod.POST)
+    public void deleteCard2(@RequestBody CollectionCard card) {
+        collectionDao.deleteCardFromCollection(card.getCollectionId(), card.getCardId());
+    }
+    
     @RequestMapping(path = "/delete/{collectionId}", method = RequestMethod.DELETE)
     public void deleteCollection(@PathVariable int collectionId) {
         collectionDao.deleteCollection(collectionId);

@@ -24,6 +24,14 @@
 
   <br />
 
+  <div>
+        <button v-on:click="deleteCollectionByCollectionId(selectedOption)">Delete Collection </button>
+        <select v-model="selectedOption" :items="options">
+            <option v-for="option in options" :key="option.id" :value="option.collectionId">
+                {{ option.collectionName }} (ID: {{ option.collectionId }})
+            </option>
+        </select>
+    </div>
 
   </div>
 <img src="../images/mtgsymbols-removebg-preview.png" />
@@ -45,9 +53,12 @@
         console.log("hello");
 
         axios.post('http://localhost:9000/collections/new', {
+
           collectionName: collectionName,
           userId: userId
-          }).then((response) => {
+          })
+          
+          .then((response) => {
           console.log("hello");
           });
 
@@ -55,7 +66,22 @@
 
         this.showCollectForm = !this.showCollectForm;
 
-      }
+      },
+      getCollectionsByUserId() {
+            axios.get(`http://localhost:9000/collections/user/${this.$store.state.user.id}`)
+                .then(response => {
+                    this.options = response.data;
+                })
+                .catch(error => {
+                    console.error("Error fetching collections:", error.message);
+                });
+        },
+        deleteCollectionByCollectionId(collectionId) {
+          axios.delete(`http://localhost:9000/collections/delete/${collectionId}`);
+
+          this.getCollectionsByUserId();
+
+        }
     },
     data() {
       return {
@@ -63,8 +89,12 @@
         collection: {
           collection_name: "",
           user_id: this.$store.state.user.id
-        }
+        },
+        options: [],
       };
+    },
+    created() {
+      this.getCollectionsByUserId();
     }
   };
 

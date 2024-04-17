@@ -41,7 +41,7 @@
         <button v-for="collection in newCollections" :key="collection.collectionId" class="collection-button"
           @click="getCollectionCards(collection.collectionId)">
           {{ collection.collectionName }}
-        </button>
+      </button>
       </ul>
       </p>
       <p v-else-if="this.$store.state.user"> No collections found yet.
@@ -130,26 +130,16 @@ export default {
         this.allCollections = response.data;
       })
     },
-    removeCardFromCollection(card) {
+    removeCardFromCollection(  card  ) {
 
-      axios.delete('http://localhost:9000/collections/cards/delete', {
+      axios.post('http://localhost:9000/collections/cards/delete',
+      {
         collectionId: this.selectedCollection.collectionId,
         cardId: card
       });
 
-      alert(`${card}, ${this.selectedCollection.collectionId}`)
+      //this.getCollectionCards(this.selectedCollection.collectionId);
 
-      // const cardToDelete = {
-      //   collectionId: 1,
-      //   cardId: "e61f8b36-6ad2-4295-bd1d-7f9e90b23190"
-      // };
-
-      // const jsonData = JSON.stringify(cardToDelete);
-      // axios.delete(`http://localhost:9000/collections/cards/delete`, jsonData, {
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   }
-      // });
     }
 
   },
