@@ -1,6 +1,24 @@
 <template>
   <div id="collectionsContainer">
+<<<<<<< HEAD
     <div class="userCollections">
+=======
+    <div class="publicCollections" v-bind:to="{ name: 'view-collections' }">
+
+      <h1 id="publicTitle">Viewable Card Collections</h1>
+      <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
+        <h2 v-on:click="getCardsByCollectionsId(collection.collectionId)">View the {{ collection.collectionName }} collection from {{ collection.username }}</h2>
+        
+        <div id="cardResults" v-for="collectionId in collection" v-bind:key="collectionId" >
+        <card-front v-for="cardFront in cardCollection" v-bind:cardFront="cardFront" v-bind:key="cardFront.name" />
+        {{ collection.collectionId }}
+
+      </div>
+      </div>
+    </div>
+
+    <div class="userCollections" v-bind:to="{ name: 'userName' }">
+>>>>>>> 2723db3f3212324df843e42badab9c5cc53eb5e9
       <h1>{{ this.$store.state.user.username }}'s Collections</h1>
 
       <button @click="getCollectionsByUserId">Get My Collections</button>
@@ -50,8 +68,14 @@ export default {
     this.getCollectionsByUserId();
   },
   methods: {
+<<<<<<< HEAD
     getCollectionsByUserId() {
       axios.get(`http://localhost:9000/collections/user/${this.$store.state.user.id}`)
+=======
+
+    getCardsByCollectionsId(collectionId) {
+      CollectionService.getCardsByCollectionsId(collectionId.collectionId)
+>>>>>>> 2723db3f3212324df843e42badab9c5cc53eb5e9
         .then(response => {
           this.newCollections = response.data;
         })

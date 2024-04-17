@@ -6,7 +6,7 @@
         </div>
 
         <div class="search-results">
-            <div class="results-cards">
+            <div class="results-cards" >
                 <card-front v-for="cardFront in limitedList" v-bind:cardFront="cardFront" v-bind:key="cardFront.name" />
             </div>
         </div>
@@ -31,6 +31,9 @@ export default {
                         this.results = response.data;
                     });
             }
+        },
+        getCardsByUserId(userId){
+            
         }
     },
     data() {
