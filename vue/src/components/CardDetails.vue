@@ -23,6 +23,15 @@
     <div id="flavor-text">{{ card.flavor_text }}</div>
     <div id="text">Text:</div>
     <div id="text-text">{{ card.oracle_text }}</div>
+
+    <div id="toggleButton">
+    <button v-on:click="toggleDropdown">Add To Collection</button>
+    <select v-model="selectedOption" :items="options" v-if="showCollection" v-on:input="addToCollection">
+      <option v-for="option in options" :key="option">
+        {{ option }}
+      </option>
+    </select>
+  </div>
   </div>
 </template>
 
