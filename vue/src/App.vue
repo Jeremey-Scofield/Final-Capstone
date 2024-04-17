@@ -75,7 +75,8 @@ export default {
 
 #ads {
   grid-area: ads;
-  align-content: space-around;
+  display: flex;
+  align-content: space-between;
   
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div id="detailsHeader">
-    <h2>Card Details:</h2>
+    <h3>Card Details:</h3>
   </div>
   <div id="card-details">
     <div id="card-name">Card Name:</div>
@@ -25,14 +25,6 @@
     <div id="text-text">{{ card.oracle_text }}</div>
 
     
-  </div>
-  <div id="toggleButton">
-    <button v-on:click="toggleDropdown">Add To Collection</button>
-    <select v-model="selectedOption" :items="options" v-if="showCollection" v-on:input="addToCollection">
-      <option v-for="option in options" :key="option">
-        {{ option }}
-      </option>
-    </select>
   </div>
 </template>
 
@@ -125,6 +117,10 @@ export default {
 
 #text-text {
   grid-area: text-text;
+}
+#detailsHeader{
+  font-size: 1.2em;
+  color: rgb(54, 104, 175);
 }
 
 #card-details {

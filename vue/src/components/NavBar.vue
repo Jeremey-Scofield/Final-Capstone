@@ -1,19 +1,20 @@
  <template>
-  <h1>NavBar</h1>
+  
   
   <div class="navLinks" v-if="$store.state.token != ''">
   
-  <router-link v-bind:to="{ name: 'view-my-collections' }" >View My Collections</router-link> 
+  <button id="myCollections">View My Collections</button> 
   <br />
-  <button v-on:click="showCollectionForm"> Create Collection </button>
+  <button id="createCollection" v-on:click="showCollectionForm"> Create Collection </button>
+
 
   <div v-if="showCollectForm" id="createCollection">
     <div id="create-collection">
       <form v-on:submit.prevent="createCollection">
         <div>
-          Name:<input type="text" id="collection_name" v-model="collection.collection_name" placeholder="Enter Your Collection's Name"/>
+          Name:<input type="text" id="collection_name" v-model="collection.collection_name" placeholder="New Collection Name"/>
 
-          ID: <input type="text" id="user_id" v-model="this.$store.state.user.id" disabled /> 
+          <!-- ID: <input type="text" id="user_id" v-model="this.$store.state.user.id" disabled />  -->
         </div>
 
         <button type="submit">Confirm Collection</button>
@@ -25,7 +26,7 @@
 
 
   </div>
-
+<img src="../images/mtgsymbols-removebg-preview.png" />
   
 </template> 
 
@@ -71,7 +72,25 @@
 </script>
 
 <style scoped>
+button {
+  margin: 5px;
+  width: 140px;
+  height: 30px;
+  border-radius: 5px;
+}
+img {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+#myCollections {
+background-color: rgb(246, 220, 159);
+}
 
+#createCollection{
+  background-color: rgb(90, 169, 62);
+}
 
 
 </style>
