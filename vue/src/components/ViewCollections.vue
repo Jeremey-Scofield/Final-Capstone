@@ -1,8 +1,5 @@
 <template>
   <div id="collectionsContainer">
-<<<<<<< HEAD
-    <div class="userCollections">
-=======
     <div class="publicCollections" v-bind:to="{ name: 'view-collections' }">
 
       <h1 id="publicTitle">Viewable Card Collections</h1>
@@ -18,7 +15,6 @@
     </div>
 
     <div class="userCollections" v-bind:to="{ name: 'userName' }">
->>>>>>> 2723db3f3212324df843e42badab9c5cc53eb5e9
       <h1>{{ this.$store.state.user.username }}'s Collections</h1>
 
       <button @click="getCollectionsByUserId">Get My Collections</button>
@@ -68,14 +64,8 @@ export default {
     this.getCollectionsByUserId();
   },
   methods: {
-<<<<<<< HEAD
     getCollectionsByUserId() {
       axios.get(`http://localhost:9000/collections/user/${this.$store.state.user.id}`)
-=======
-
-    getCardsByCollectionsId(collectionId) {
-      CollectionService.getCardsByCollectionsId(collectionId.collectionId)
->>>>>>> 2723db3f3212324df843e42badab9c5cc53eb5e9
         .then(response => {
           this.newCollections = response.data;
         })
