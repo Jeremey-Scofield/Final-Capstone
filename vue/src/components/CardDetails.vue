@@ -1,6 +1,6 @@
 <template>
   <div id="detailsHeader">
-    <h2>Card Details:</h2>
+    <h3>Card Details:</h3>
   </div>
   <div id="card-details">
     <div id="card-name">Card Name:</div>
@@ -114,6 +114,10 @@ export default {
 
 #text-text {
   grid-area: text-text;
+}
+#detailsHeader{
+  font-size: 1.2em;
+  color: rgb(54, 104, 175);
 }
 
 #card-details {

@@ -1,7 +1,7 @@
 <template>
     <div id="searchContainer">
         <div class="form-input">
-            <label for="search">Search For A Card By Name: </label>
+            <label for="search">Search For A Card: </label>
             <input type="text" id="search" v-model="searchString" v-on:change="search()" placeholder="search card name" />
         </div>
 
@@ -55,10 +55,11 @@ export default {
 <style scoped>
 .form-input {
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
 }
 #searchContainer {
-   
+  align-items: center;
 }
 .search-results {
     display: flex;

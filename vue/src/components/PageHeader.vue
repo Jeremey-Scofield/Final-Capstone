@@ -24,7 +24,9 @@
 
 <style scoped>
 .headContainer {
+  
   display: grid;
+  border-bottom: solid rgb(167, 80, 53) 2px;
   
   grid-auto-columns: 1fr;
   grid-template-areas: 

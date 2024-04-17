@@ -1,13 +1,13 @@
 <template>
   <div id="randomCard">
     <div id="title">
-      <h1>Random Card:</h1>
+      <h2>Random Card:</h2>
     </div>
     <div id="cardPic" v-on:click="showCardDetails(true)">
       <img v-bind:src="card.image_uris.small" v-bind:alt="card.name" v-bind:to="{ name: 'RandomCard' }" />
     </div>
     <div id="cardTitle">
-      <h1>{{ card.name }}</h1>
+      <h3>{{ card.name }}</h3>
     </div>
 
     <div id="cardDetails" v-show="showDetails">
@@ -83,6 +83,7 @@ export default {
 
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-template-rows: 50px 50px;
   grid-template-areas:
     "title title"
     "cardName cardDetails"
@@ -102,13 +103,17 @@ export default {
   grid-area: cardName;
   padding: 0;
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.0em;
 }
 
 #title {
   grid-area: title;
   align-items: start;
   justify-items: start;
+  font-size: 1.2em;
+  color: rgb(54, 104, 175);
+  padding: 0;
+  margin: 0;
 }
 
 #cardTitle>h1 {
@@ -119,10 +124,4 @@ export default {
   grid-area: cardDetails;
 }
 
-#title {
-  font-size: 1.25em;
-
-  padding: 0;
-  margin: 0;
-}
 </style>
