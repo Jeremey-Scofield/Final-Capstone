@@ -28,6 +28,8 @@ public class CollectionController {
 
     @RequestMapping(path = "/user/{userId}", method = RequestMethod.GET)
     public List<Collection> getCollectionsByUserId(@PathVariable int userId) {
+        System.out.println("taco");
+
         return collectionDao.getCollectionsByUserId(userId);
     }
 

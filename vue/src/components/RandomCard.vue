@@ -22,7 +22,7 @@
     <button v-on:click="toggleDropdown">Add To Collection</button>
     <select v-model="selectedOption" :items="options" v-if="showCollection" v-on:input="addToCollection">
       <option v-for="option in options" :key="option">
-        {{ option }}
+        {{ card }}
       </option>
     </select>
   </div>
