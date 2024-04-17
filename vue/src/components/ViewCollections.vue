@@ -64,14 +64,8 @@ export default {
     this.getCollectionsByUserId();
   },
   methods: {
-<<<<<<< HEAD
     getCollectionsByUserId() {
       axios.get(`http://localhost:9000/collections/user/${this.$store.state.user.id}`)
-=======
-
-    getCardsByCollectionsId(collectionId) {
-      CollectionService.getCardsByCollectionsId(collectionId.collectionId)
->>>>>>> 2723db3f3212324df843e42badab9c5cc53eb5e9
         .then(response => {
           this.newCollections = response.data;
         })
