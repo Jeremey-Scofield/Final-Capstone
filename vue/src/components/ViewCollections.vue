@@ -29,8 +29,6 @@
       </div>
     </div>
 
-    <p> THIS IS A BREAK IN THE TEXT</p>
-
     <div class="userCollections" v-bind:to="{ name: 'userName' }">
       <h1>{{ this.$store.state.user.username }}'s Collections</h1>
 

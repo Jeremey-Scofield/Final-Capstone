@@ -1,55 +1,55 @@
 BEGIN TRANSACTION;
 
-INSERT INTO users (username,password_hash,email, role) VALUES ('user1','user1','user1@email.com','ROLE_USER');
-INSERT INTO users (username,password_hash,email, role) VALUES ('user2','user2','user2@email.com','ROLE_USER');
-INSERT INTO users (username,password_hash,email, role) VALUES ('user3','user3','user3@email.com','ROLE_USER');
+INSERT INTO users (username,password_hash,email, role) VALUES ('jeffery','"$2a$10$JPpiS.G2ofm1rfFXqurdcuMxEz6oYVupXpXeHSrDOTDKkfiLFm4F6"','user1@email.com','ROLE_USER');
+INSERT INTO users (username,password_hash,email, role) VALUES ('bob','"$2a$10$JPpiS.G2ofm1rfFXqurdcuMxEz6oYVupXpXeHSrDOTDKkfiLFm4F6"','user2@email.com','ROLE_USER');
+INSERT INTO users (username,password_hash,email, role) VALUES ('samantha','"$2a$10$JPpiS.G2ofm1rfFXqurdcuMxEz6oYVupXpXeHSrDOTDKkfiLFm4F6"','user3@email.com','ROLE_USER');
 
-INSERT INTO public.collections(collection_name, user_id) VALUES ('collection1', 1);
-INSERT INTO public.collections(collection_name, user_id) VALUES ('collection2', 2);
-INSERT INTO public.collections(collection_name, user_id) VALUES ('collection3', 2);
-INSERT INTO public.collections(collection_name, user_id) VALUES ('collection4', 3);
-INSERT INTO public.collections(collection_name, user_id) VALUES ('collection5', 3);
-INSERT INTO public.collections(collection_name, user_id) VALUES ('collection6', 3);
+INSERT INTO public.collections(collection_name, user_id) VALUES ('the black deck', 1);
+INSERT INTO public.collections(collection_name, user_id) VALUES ('bobs favs', 2);
+INSERT INTO public.collections(collection_name, user_id) VALUES ('we winnin', 2);
+INSERT INTO public.collections(collection_name, user_id) VALUES ('sams cards', 3);
+INSERT INTO public.collections(collection_name, user_id) VALUES ('personal favs!', 3);
+INSERT INTO public.collections(collection_name, user_id) VALUES ('Angels & Dragons', 3);
 
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (1, '151cafcb-a589-4681-a914-7313246a7626');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (1, 'a37159df-f6d7-4db6-85de-0ea77f425993');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (1, '89ca686a-7c72-4d8f-9290-e89635624a83');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (1, '27180bad-9bbc-462b-8832-626dc403a3fd');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (1, '3b945b4d-5240-4779-9187-e3b18903bf59');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (1, 'e61f8b36-6ad2-4295-bd1d-7f9e90b23190');
 
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (2, '7f394a7b-6945-45c8-ad2f-f761150c856a');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (2, '10ab3102-43a3-4c60-8641-2c5a7c1e29c2');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (2, 'c6861c50-d336-4352-a76d-ec22a86ec09e');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (2, '1a587b8d-fcb4-47ca-9689-610897117166');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (2, '29e1c6e3-d76e-4388-b4e9-f732fdec4338');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (2, '5d095694-9016-4b1b-81d0-ffa1fc7662a3');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (2, '35f1a6ba-e46f-44fb-93f4-fb883d677b36');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (2, '168cbca9-0124-478b-8dd7-0bd9dc711c6d');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (2, '307bef28-eb1d-4f43-bc76-304e027ba453');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (2, '9f65422e-2da5-4eb9-bed6-090d7e2de498');
 
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (3, 'dc3b2bab-755d-4b2f-97c0-70a74d721a79');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (3, '79e91e8a-cee7-411b-b0a3-d3383c0d4a43');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (3, '26f6170a-34dc-41c8-b3b1-20377f131e6e');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (3, 'b953d19f-6ba7-4aee-b353-c60dc9572610');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (3, 'fa023c32-2cec-416c-90b7-07b7a19c82d4');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (3, '4234e98b-c89c-4169-bddc-141cc1ba363d');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (3, '74db0dd4-3bb6-41f7-803c-a04647327dec');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (3, '089b1057-ed1f-45a5-ba95-28aa51713764');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (3, '93311f80-0d0e-4005-ba43-5dbfe438d127');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (3, '96b263fb-00b5-4050-85e1-cfc4018bb75d');
 
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (4, '41dd29b9-f08d-4ccc-8dc0-da11d2d456e9');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (4, '5089ec1a-f881-4d55-af14-5d996171203b');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (4, 'c0a448ee-e5f9-4e57-85b0-f6d401018170');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (4, '41ac1aa0-c350-4c77-ac3a-2c5abfcb7e35');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (4, '9dcfcd37-7c54-415e-86d0-6763bd71e209');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (4, '3f47b0c5-f1d9-46a6-8fc5-c12db4fb1c88');
 
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, '4a3cc4f6-037f-461d-a3b7-9f9e24c4b8cf');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, '0b88bc94-99c4-4be5-b474-a7dad68057b3');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, '514179c0-a50b-4565-8e71-9dad256edd85');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, 'eb44b65d-6b56-4f20-a4fb-c5dd147a54c4');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, '624d4bda-448f-43d1-92b6-53a77afe2374');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, 'a6a9776b-87f4-4a08-8074-d49fbbe417ae');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, '55f3c721-e13a-406e-bc8e-d6cdc91ac477');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, 'a6708b11-1bcd-4208-a967-fe91f2e3313c');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, '7aede682-c5a1-486e-ae61-017f99aed5b0');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, 'c56c3800-b6d5-44e8-8797-2d80070fd4d0');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, '419fea28-3813-4e65-8b90-6d335fdf0a0b');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, 'b00e61dc-0e8d-4015-b343-d487e6a7a95c');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, 'cb0e4c78-75fe-4692-b177-974b148f0614');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, '85b64d1f-29f4-4165-b81c-a831dd051139');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, 'a1ea2c17-382a-45e4-ac34-88bf8ba47169');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (5, '35b3ad6b-9966-489f-a4c9-2639a634fd62');
 
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, '5c4e9401-537c-4bf6-bd07-d2abc43612c9');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'a64656b2-0f0c-4239-9dfe-a9ddc7ada733');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, '895527a6-e3b2-454d-a3be-c0036630ec73');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, '8fd85a54-f0c7-4e9f-a4b4-b9b513b98d95');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'c6a4a39e-87e6-47bd-bbe3-ca3c98c2049c');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, '8f6a2fce-719e-4745-80d3-aabce5c9bafa');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, '1869a326-8b48-4331-b969-5ce83cf4ff8a');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, '2c63e4e1-89d2-4bc6-a232-94e75c4b1c8a');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'b9d018ff-de27-4bf6-9cc6-9d9a46db3eb9');
-INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, '562d71b9-1646-474e-9293-55da6947a758');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'a835da43-0a3e-40fb-a7e8-4fa118c7d975');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'de6ff6af-22f4-46fb-97d3-6f8f20f8b16c');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'b5fb67ed-f4ea-47d6-876a-2ad6a3fc9a18');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'b43b3c33-aa44-4001-87ff-695bf04f51be');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'd094541b-855c-4e4f-a024-cab735987787');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'a30c266d-579e-4757-a4d6-6722fa343a6');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'eb5beaf0-21ca-4539-8773-8a9430af74b0');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, '94d0e916-26c5-4a27-9ea5-69120160b25b');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, 'a79701b4-d220-4c3e-b96c-7a77a22ba899');
+INSERT INTO public.collection_cards(collection_id, card_id) VALUES (6, '2860a20d-e1bf-4e46-8c07-a858f616d5a5');
 
 
 COMMIT TRANSACTION;
