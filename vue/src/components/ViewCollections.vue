@@ -4,9 +4,13 @@
 
       <h1 id="publicTitle">Viewable Card Collections</h1>
       <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
-        <h2>View the {{ collection.collectionName }} collection from {{ collection.username }}</h2>
-        <router-link v-bind:to="{ name: 'get-cards-in-collection' }">Link to cards in this collection</router-link>
+        <h2 v-on:click="getCardsByCollectionsId(collection.collectionId)">View the {{ collection.collectionName }} collection from {{ collection.username }}</h2>
         
+        <div id="cardResults" v-for="collectionId in collection" v-bind:key="collectionId" >
+        <card-front v-for="cardFront in cardCollection" v-bind:cardFront="cardFront" v-bind:key="cardFront.name" />
+        {{ collection.collectionId }}
+
+      </div>
       </div>
     </div>
 
@@ -50,7 +54,7 @@ export default {
   methods: {
 
     getCardsByCollectionsId(collectionId) {
-      CollectionService.getCardsByCollectionsId(this.collections.collectionId)
+      CollectionService.getCardsByCollectionsId(collectionId.collectionId)
         .then(response => {
           this.cardCollection = response.data;
         });
