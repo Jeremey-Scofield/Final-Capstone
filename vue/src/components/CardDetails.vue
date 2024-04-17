@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #card-name {
   font-weight: bold;
   grid-area: card-name;

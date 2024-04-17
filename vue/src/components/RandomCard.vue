@@ -4,11 +4,7 @@
       <h1>Random Card:</h1>
     </div>
     <div id="cardPic" v-on:click="showCardDetails(true)">
-      <img
-        v-bind:src="card.image_uris.small"
-        v-bind:alt="card.name"
-        v-bind:to="{ name: 'RandomCard' }"
-      />
+      <img v-bind:src="card.image_uris.small" v-bind:alt="card.name" v-bind:to="{ name: 'RandomCard' }" />
     </div>
     <div id="cardTitle">
       <h1>{{ card.name }}</h1>
@@ -18,14 +14,14 @@
       <card-details v-bind:card="this.card" />
     </div>
   </div>
-  <div id="toggleButton">
+  <!-- <div id="toggleButton">
     <button v-on:click="toggleDropdown">Add To Collection</button>
     <select v-model="selectedOption" :items="options" v-if="showCollection" v-on:input="addToCollection">
       <option v-for="option in options" :key="option">
         {{ card }}
       </option>
     </select>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -75,7 +71,7 @@ export default {
     },
     addToCollection() {
       this.addToCollection.push(this.selectedOption);
-      
+
     }
   },
 };
@@ -83,8 +79,7 @@ export default {
 
 <style scoped>
 #randomCard {
-  border-style: dashed;
-  border-color: aqua;
+
 
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -93,30 +88,37 @@ export default {
     "cardName cardDetails"
     "cardPic cardDetails";
 }
+
 #cardPic {
   grid-area: cardPic;
   display: flex;
   flex-direction: column;
   padding: 0;
   margin: 0;
+  width: 75%;
 }
+
 #cardTitle {
   grid-area: cardName;
   padding: 0;
   margin: 0;
   font-size: 1.2em;
 }
+
 #title {
   grid-area: title;
   align-items: start;
   justify-items: start;
 }
-#cardTitle > h1 {
+
+#cardTitle>h1 {
   font-size: 1.2em;
 }
+
 #cardDetails {
   grid-area: cardDetails;
 }
+
 #title {
   font-size: 1.25em;
 

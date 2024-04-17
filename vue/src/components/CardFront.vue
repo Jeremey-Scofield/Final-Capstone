@@ -33,10 +33,9 @@ export default {
 </script>
 
   
-<style>
+<style scoped>
 .cardFront {
-    border-style: solid;
-    border-color: rgb(236, 34, 135);
+
 
     margin: 2px;
     display: grid;

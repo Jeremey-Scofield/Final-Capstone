@@ -52,14 +52,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .form-input {
     margin-top: 25px;
     margin-bottom: 25px;
 }
 #searchContainer {
-    border-style: dashed;
-    border-color: rgb(253, 170, 45);
+   
 }
 .search-results {
     display: flex;

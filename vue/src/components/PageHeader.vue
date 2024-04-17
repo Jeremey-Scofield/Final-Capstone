@@ -1,6 +1,6 @@
 <template>
     <div class="nav">
-         <h1> MTG Card Collector</h1>
+         <h1> Magic: The Gathering Slytherin Card Collector</h1>
       <div id="login">
         <router-link v-bind:to="{ name: 'home' }">Home | </router-link>
         
@@ -15,7 +15,7 @@
 
 </script>
 
-<style>
+<style scoped>
 .nav {
   display: flex;
 }
