@@ -14,8 +14,7 @@ export default {
 
 <style scoped>
 .home{
-margin-left: 20px;
-padding-left: 20px;
+
 }
 
 </style>

@@ -71,5 +71,11 @@ export default {
     display: flex;
     
 }
-
+input {
+    background: transparent;
+    border: 2px solid rgb(167, 80, 53);
+  border-radius: 4px;
+  height: 35px;
+  width: 250px;
+}
 </style>
