@@ -1,8 +1,8 @@
 BEGIN TRANSACTION;
 
-INSERT INTO users (username,password_hash,email, role) VALUES ('jeffery','"$2a$10$JPpiS.G2ofm1rfFXqurdcuMxEz6oYVupXpXeHSrDOTDKkfiLFm4F6"','user1@email.com','ROLE_USER');
-INSERT INTO users (username,password_hash,email, role) VALUES ('bob','"$2a$10$JPpiS.G2ofm1rfFXqurdcuMxEz6oYVupXpXeHSrDOTDKkfiLFm4F6"','user2@email.com','ROLE_USER');
-INSERT INTO users (username,password_hash,email, role) VALUES ('samantha','"$2a$10$JPpiS.G2ofm1rfFXqurdcuMxEz6oYVupXpXeHSrDOTDKkfiLFm4F6"','user3@email.com','ROLE_USER');
+INSERT INTO users (username,password_hash,email, role) VALUES ('jeffery','$2a$10$JPpiS.G2ofm1rfFXqurdcuMxEz6oYVupXpXeHSrDOTDKkfiLFm4F6','user1@email.com','ROLE_USER');
+INSERT INTO users (username,password_hash,email, role) VALUES ('bob','$2a$10$JPpiS.G2ofm1rfFXqurdcuMxEz6oYVupXpXeHSrDOTDKkfiLFm4F6','user2@email.com','ROLE_USER');
+INSERT INTO users (username,password_hash,email, role) VALUES ('samantha','$2a$10$JPpiS.G2ofm1rfFXqurdcuMxEz6oYVupXpXeHSrDOTDKkfiLFm4F6','user3@email.com','ROLE_USER');
 
 INSERT INTO public.collections(collection_name, user_id) VALUES ('the black deck', 1);
 INSERT INTO public.collections(collection_name, user_id) VALUES ('bobs favs', 2);
