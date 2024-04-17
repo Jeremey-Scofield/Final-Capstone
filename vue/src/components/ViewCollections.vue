@@ -52,6 +52,7 @@
         <div v-if="selectedCollection.cards && selectedCollection.cards.length > 0">
           <div v-for="(card, index) in selectedCollection.cards" :key="card.id">
             <img :src="imageList[index]" alt="Card Image" onError="this.src='placeholder.png'">
+            {{ imageList }}
           </div>
         </div>
         <p v-else>This collection has no cards yet.</p>
