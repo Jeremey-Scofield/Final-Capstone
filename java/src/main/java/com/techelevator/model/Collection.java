@@ -5,7 +5,7 @@ public class Collection {
     private int collectionId;
     private String collectionName;
     private int userId;
-    private String username;
+    private String username = " ";
 
     public Collection(String collectionName, int userId, String username) {
         this.collectionName = collectionName;

@@ -9,7 +9,6 @@
         v-bind:alt="card.name"
         v-bind:to="{ name: 'RandomCard' }"
       />
-      
     </div>
     <div id="cardTitle">
       <h1>{{ card.name }}</h1>
@@ -19,22 +18,20 @@
       <card-details v-bind:card="this.card" />
     </div>
   </div>
-  <div>
-        <button v-on:click="toggleDropdown">Add To Collection</button>
-        <select v-model="selectedOption" :items="options" v-if="showCollection">
-          <option
-            v-for="option in options"
-            :key="option"
-          >
-            {{ option }}
-          </option>
-        </select>
-      </div>
+  <div id="toggleButton">
+    <button v-on:click="toggleDropdown">Add To Collection</button>
+    <select v-model="selectedOption" :items="options" v-if="showCollection" v-on:input="addToCollection">
+      <option v-for="option in options" :key="option">
+        {{ option }}
+      </option>
+    </select>
+  </div>
 </template>
 
 <script>
 import CardService from "../services/CardService";
 import CardDetails from "../components/CardDetails.vue";
+import CollectionService from "../services/CollectionService";
 
 export default {
   components: {
@@ -51,16 +48,21 @@ export default {
           large: "",
         },
       },
+      addedCard: {
+        collectionId: "",
+        cardId: "",
+      },
       showCollection: false,
       selectedOption: null,
-      options: ['test1', 'test2'],
-      
+      options: ["My Collection"],
     };
-    
   },
   created() {
     CardService.random().then((response) => {
       this.card = response.data;
+    });
+    CollectionService.addCardToCollection().then((response) => {
+      this.addedCard = response.data;
     });
   },
   methods: {
@@ -69,9 +71,12 @@ export default {
     },
 
     toggleDropdown() {
-     
       this.showCollection = !this.showCollection;
     },
+    addToCollection() {
+      this.addToCollection.push(this.selectedOption);
+      
+    }
   },
 };
 </script>
