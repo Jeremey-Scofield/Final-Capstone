@@ -3,7 +3,22 @@
     <div class="publicCollections" v-bind:to="{ name: 'view-collections' }">
 
       <h1 id="publicTitle">Viewable Card Collections</h1>
+
+      <button @click="getAllCollections"> get all collections </button>
+
+      <p v-if="allCollections.length > 0">
+          All Collections:
+      <ul>
+        <button v-for="collection in allCollections" :key="collection.collectionId" class = "allCollectionButton"
+        @click="getCollectionCards(collection.collectionId)">
+        {{ collection.collectionName }}
+      </button>
+      </ul>
+      </p>
+  
       <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
+
+      
         <h2 v-on:click="getCardsByCollectionsId(collection.collectionId)">View the {{ collection.collectionName }} collection from {{ collection.username }}</h2>
         
         <div id="cardResults" v-for="collectionId in collection" v-bind:key="collectionId" >
@@ -13,6 +28,8 @@
       </div>
       </div>
     </div>
+
+    <p> THIS IS A BREAK IN THE TEXT</p>
 
     <div class="userCollections" v-bind:to="{ name: 'userName' }">
       <h1>{{ this.$store.state.user.username }}'s Collections</h1>
@@ -54,6 +71,7 @@ export default {
   components: {},
   data() {
     return {
+      allCollections: [],
       newCollections: [],
       selectedCollection: null,
       cardInformation: {},
@@ -62,6 +80,7 @@ export default {
   },
   created() {
     this.getCollectionsByUserId();
+    this.getAllCollections();
   },
   methods: {
     getCollectionsByUserId() {
@@ -105,6 +124,11 @@ export default {
         .catch(() => {
           return 'placeholder.png'; // Return placeholder image on error
         });
+    },
+    getAllCollections() {
+      axios.get(`http://localhost:9000/collections`).then((response) => {
+        this.allCollections = response.data;
+      })
     }
 
   },
