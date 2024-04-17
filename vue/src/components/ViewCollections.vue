@@ -7,25 +7,26 @@
       <button @click="getAllCollections"> get all collections </button>
 
       <p v-if="allCollections.length > 0">
-          All Collections:
+        All Collections:
       <ul>
-        <button v-for="collection in allCollections" :key="collection.collectionId" class = "allCollectionButton"
-        @click="getCollectionCards(collection.collectionId)">
-        {{ collection.collectionName }}
-      </button>
+        <button v-for="collection in allCollections" :key="collection.collectionId" class="allCollectionButton"
+          @click="getCollectionCards(collection.collectionId)">
+          {{ collection.collectionName }}
+        </button>
       </ul>
       </p>
-  
+
       <div id="collectionResults" v-for="collection in collections" v-bind:key="collection.collectionId">
 
-      
-        <h2 v-on:click="getCardsByCollectionsId(collection.collectionId)">View the {{ collection.collectionName }} collection from {{ collection.username }}</h2>
-        
-        <div id="cardResults" v-for="collectionId in collection" v-bind:key="collectionId" >
-        <card-front v-for="cardFront in cardCollection" v-bind:cardFront="cardFront" v-bind:key="cardFront.name" />
-        {{ collection.collectionId }}
 
-      </div>
+        <h2 v-on:click="getCardsByCollectionsId(collection.collectionId)">View the {{ collection.collectionName }}
+          collection from {{ collection.username }}</h2>
+
+        <div id="cardResults" v-for="collectionId in collection" v-bind:key="collectionId">
+          <card-front v-for="cardFront in cardCollection" v-bind:cardFront="cardFront" v-bind:key="cardFront.name" />
+          {{ collection.collectionId }}
+
+        </div>
       </div>
     </div>
 
@@ -52,7 +53,7 @@
         <div v-if="selectedCollection.cards && selectedCollection.cards.length > 0">
           <div v-for="(card, index) in selectedCollection.cards" :key="card.id">
             <img :src="imageList[index]" alt="Card Image" onError="this.src='placeholder.png'">
-            {{ imageList }}
+            <button @click="removeCardFromCollection(card)"> remove card </button>
           </div>
         </div>
         <p v-else>This collection has no cards yet.</p>
@@ -128,6 +129,27 @@ export default {
       axios.get(`http://localhost:9000/collections`).then((response) => {
         this.allCollections = response.data;
       })
+    },
+    removeCardFromCollection(card) {
+
+      axios.delete('http://localhost:9000/collections/cards/delete', {
+        collectionId: this.selectedCollection.collectionId,
+        cardId: card
+      });
+
+      alert(`${card}, ${this.selectedCollection.collectionId}`)
+
+      // const cardToDelete = {
+      //   collectionId: 1,
+      //   cardId: "e61f8b36-6ad2-4295-bd1d-7f9e90b23190"
+      // };
+
+      // const jsonData = JSON.stringify(cardToDelete);
+      // axios.delete(`http://localhost:9000/collections/cards/delete`, jsonData, {
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   }
+      // });
     }
 
   },
