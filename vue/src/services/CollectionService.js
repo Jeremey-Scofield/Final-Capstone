@@ -11,7 +11,7 @@ export default {
       return http.get('/collections');
     },
     getCardsByCollectionsId(collectionId) {
-      return http.get(`/${collectionId}/cards`);
+      return http.get(`/collections/${collectionId}/cards`);
   },
   addCardToCollection(cardCollection) {
     return http.post('cards/new');
