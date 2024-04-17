@@ -24,7 +24,9 @@
     <div id="text">Text:</div>
     <div id="text-text">{{ card.oracle_text }}</div>
 
-    <div id="toggleButton">
+    
+  </div>
+  <div id="toggleButton">
     <button v-on:click="toggleDropdown">Add To Collection</button>
     <select v-model="selectedOption" :items="options" v-if="showCollection" v-on:input="addToCollection">
       <option v-for="option in options" :key="option">
@@ -32,13 +34,22 @@
       </option>
     </select>
   </div>
-  </div>
 </template>
 
 <script>
 export default {
   props: ["card"],
+  methods: {
+    toggleDropdown() {
+      this.showCollection = !this.showCollection;
+    },
+    addToCollection() {
+      this.addToCollection.push(this.selectedOption);
+
+    }
+  },
 };
+
 </script>
 
 <style scoped>
