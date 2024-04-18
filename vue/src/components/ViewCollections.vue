@@ -10,7 +10,7 @@
         All Collections:
       <ul>
         <button v-for="collection in allCollections" :key="collection.collectionId" class="allCollectionButton"
-          @click="getCollectionCards(collection.collectionId)">
+          @click="handleAllCollections(collection.collectionId)">
           {{ collection.collectionName }}
         </button>
       </ul>
@@ -39,7 +39,7 @@
         Your Collections:
       <ul>
         <button v-for="collection in newCollections" :key="collection.collectionId" class="collection-button"
-          @click="getCollectionCards(collection.collectionId)">
+          @click="handleMyCollections(collection.collectionId)">
           {{ collection.collectionName }}
         </button>
       </ul>
@@ -53,7 +53,7 @@
         <div v-if="selectedCollection.cards && selectedCollection.cards.length > 0">
           <div v-for="(card, index) in selectedCollection.cards" :key="card.id">
             <img :src="imageList[index]" alt="Card Image" onError="this.src='placeholder.png'">
-            <button @click="removeCardFromCollection(card)"> remove card </button>
+            <button v-if="onPlayersCollections" @click="removeCardFromCollection(card)"> remove card </button>
           </div>
         </div>
         <p v-else>This collection has no cards yet.</p>
@@ -76,6 +76,7 @@ export default {
       selectedCollection: null,
       cardInformation: {},
       imageList: [],
+      onPlayersCollections: false,
     };
   },
   created() {
@@ -84,6 +85,8 @@ export default {
   },
   methods: {
     getCollectionsByUserId() {
+      alert('this has been activated');
+
       axios.get(`http://localhost:9000/collections/user/${this.$store.state.user.id}`)
         .then(response => {
           this.newCollections = response.data;
@@ -129,27 +132,31 @@ export default {
       axios.get(`http://localhost:9000/collections`).then((response) => {
         this.allCollections = response.data;
       })
+
+      this.onPlayersCollections = false;
     },
     removeCardFromCollection(card) {
-
-      axios.delete('http://localhost:9000/collections/cards/delete', {
+      axios.post('http://localhost:9000/collections/cards/delete', {
         collectionId: this.selectedCollection.collectionId,
         cardId: card
-      });
+      })
+        .then(() => {
+          // After successful deletion, filter the card out locally
+          this.selectedCollection.cards = this.selectedCollection.cards.filter(c => c.id !== card.id);
+          this.handleMyCollections(this.selectedCollection.collectionId);
+        })
+        .catch(error => {
+          console.error("Error removing card:", error.message);
+        });
+    },
+    handleAllCollections(collectionId) {
+      this.getCollectionCards(collectionId);
+      this.onPlayersCollections = false;
+    },
 
-      alert(`${card}, ${this.selectedCollection.collectionId}`)
-
-      // const cardToDelete = {
-      //   collectionId: 1,
-      //   cardId: "e61f8b36-6ad2-4295-bd1d-7f9e90b23190"
-      // };
-
-      // const jsonData = JSON.stringify(cardToDelete);
-      // axios.delete(`http://localhost:9000/collections/cards/delete`, jsonData, {
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   }
-      // });
+    handleMyCollections(collectionId) {
+      this.getCollectionCards(collectionId)
+      this.onPlayersCollections = true;
     }
 
   },
