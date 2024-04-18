@@ -2,9 +2,9 @@
   <div id="collectionsContainer">
     <div class="publicCollections" v-bind:to="{ name: 'view-collections' }">
 
-      <h2 id="publicTitle">Slytherin Card Collections</h2>
+      <h2 id="publicTitle">Slytherin Card Collections:</h2>
 
-      <button @click="getAllCollections"> get all collections </button>
+      <button id="getAllCollectionsButton" @click="getAllCollections"> get all collections </button>
 
       <p v-if="allCollections.length > 0">
         All Collections:
@@ -29,32 +29,30 @@
         </div>
       </div>
     </div>
+    <div v-show="$store.state.token != ''">
+      <div class="userCollections" v-bind:to="{ name: 'userName' }">
+        <h2>{{ this.$store.state.user.username }}'s Collections:</h2>
 
-    <div class="userCollections" v-bind:to="{ name: 'userName' }">
-      <h1>{{ this.$store.state.user.username }}'s Collections</h1>
+        <button id="getMyCollectionsButton" @click="getCollectionsByUserId">Get My Collections</button>
 
-      <button @click="getCollectionsByUserId">Get My Collections</button>
-
-      <p v-if="newCollections.length > 0">
-        Your Collections:
-      <ul>
-        <button v-for="collection in newCollections" :key="collection.collectionId" class="collection-button"
-          @click="handleMyCollections(collection.collectionId)">
-          {{ collection.collectionName }}
-        </button>
-      </ul>
-      </p>
-      <p v-else-if="this.$store.state.user"> No collections found yet.
-      </p>
-      <p v-else> Please log in to see your collections.
-      </p>
+        <p v-if="newCollections.length > 0">
+          Your Collections:
+        <ul>
+          <button id="myCollectionsButtons" v-for="collection in newCollections" :key="collection.collectionId" class="collection-button"
+            @click="handleMyCollections(collection.collectionId)">
+            {{ collection.collectionName }}
+          </button>
+        </ul>
+        </p>
+      </div>
+    </div>
       <div v-if="selectedCollection">
         <h2>Cards in {{ selectedCollection.collectionId }}</h2>
         <div v-if="selectedCollection.cards && selectedCollection.cards.length > 0">
           <div class="cards">
             <div v-for="(card, index) in selectedCollection.cards" :key="card.id">
               <div class="displayCard">
-                <div class = "card-image">
+                <div class="card-image">
                   <img :src="imageList[index]" alt="Card Image" onError="this.src='placeholder.png'">
                 </div>
                 <button v-if="onPlayersCollections" @click="removeCardFromCollection(card)"> remove card </button>
@@ -65,7 +63,6 @@
         <p v-else>This collection has no cards yet.</p>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -180,10 +177,25 @@ export default {
   width: 120px;
   margin: 20px;
 }
-
+h2{
+  font-size: 2em;
+  color: rgb(54, 104, 175);
+}
 .cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+#getAllCollectionsButton {
+  background-color: rgb(54, 104, 175);
+  color: white;
+}
+#getMyCollectionsButton {
+  background-color: rgb(54, 104, 175);
+  color: white;
+}
+#myCollectionsButtons {
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
 </style>

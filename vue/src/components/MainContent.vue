@@ -32,5 +32,7 @@ export default {
 </script>
 
 <style scoped>
-
+.main {
+  margin-left: 10px;
+}
 </style>

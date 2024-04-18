@@ -1,14 +1,15 @@
 <template>
+  <div class="navContainer">
   <div class="navLinks" v-if="$store.state.token != ''">
 
-    <button id="myCollections">View My Collections</button>
-    <br />
+    
+  
     <button id="createCollection" v-on:click="showCollectionForm"> Create Collection </button>
 
 
-    <div v-if="showCollectForm" id="createCollection">
+    <div v-if="showCollectForm" >
       <div id="create-collection">
-        <form v-on:submit.prevent="createCollection">
+        <form v-on:submit.prevent="createCollection()">
           <div>
             Name: <input type="text" id="collection_name" v-model="collection.collection_name"
               placeholder="New Collection Name" />
@@ -40,6 +41,7 @@
     
   </div>
   <img src="../images/mtgsymbols-removebg-preview.png" />
+</div>
 </template>
 
 <script>
@@ -117,11 +119,20 @@ export default {
 </script>
 
 <style scoped>
+.navContainer {
+  height: 100vh;
+    padding-right: 10px;
+    border-right: dashed gray 1px;
+    width: 175px;
+}
 button {
   margin: 5px;
   width: 140px;
   height: 30px;
   border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 img {

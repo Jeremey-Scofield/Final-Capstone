@@ -2,10 +2,10 @@
   <div class="footer-container">
     <div class="copyright">
       <p>
-        “Magic: The Gathering Slytherin Card Collector is unofficial Fan Content permitted under
+        Magic: The Gathering Slytherin Card Collector is unofficial Fan Content permitted under
         the Fan Content Policy. Not approved/endorsed by Wizards. Portions of
         the materials used are property of Wizards of the Coast. ©Wizards of the
-        Coast LLC.”
+        Coast LLC.
       </p>
       <p>Magic: The Gathering Slytherin Card Collector is powered by the Scryfall LLC API.</p>
     </div>
@@ -38,6 +38,7 @@
 
 <style scoped>
 .footer-container {
+  border-top: solid rgb(167, 80, 53) 2px;
   margin: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

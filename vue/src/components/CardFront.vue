@@ -75,7 +75,15 @@ export default {
         "cardImg";
     grid-auto-columns: minmax(auto, 200px);
 }
-
+button {
+    background-color: rgb(246, 220, 159);
+}
+select {
+    background: transparent;
+}
+option {
+    background: transparent;
+}
 .card-image {
     grid-area: cardImg;
     margin-left: auto;
