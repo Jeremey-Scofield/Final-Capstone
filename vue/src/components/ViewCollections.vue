@@ -9,8 +9,8 @@
       <p v-if="allCollections.length > 0">
         All Collections:
       <ul>
-        <button id="collectionButtons" v-for="collection in allCollections" :key="collection.collectionId" class="allCollectionButton"
-          @click="handleAllCollections(collection.collectionId)">
+        <button id="collectionButtons" v-for="collection in allCollections" :key="collection.collectionId"
+          class="allCollectionButton" @click="handleAllCollections(collection.collectionId)">
           {{ collection.collectionName }}
         </button>
       </ul>
@@ -51,9 +51,15 @@
       <div v-if="selectedCollection">
         <h2>Cards in {{ selectedCollection.collectionId }}</h2>
         <div v-if="selectedCollection.cards && selectedCollection.cards.length > 0">
-          <div v-for="(card, index) in selectedCollection.cards" :key="card.id">
-            <img :src="imageList[index]" alt="Card Image" onError="this.src='placeholder.png'">
-            <button v-if="onPlayersCollections" @click="removeCardFromCollection(card)"> remove card </button>
+          <div class="cards">
+            <div v-for="(card, index) in selectedCollection.cards" :key="card.id">
+              <div class="displayCard">
+                <div class = "card-image">
+                  <img :src="imageList[index]" alt="Card Image" onError="this.src='placeholder.png'">
+                </div>
+                <button v-if="onPlayersCollections" @click="removeCardFromCollection(card)"> remove card </button>
+              </div>
+            </div>
           </div>
         </div>
         <p v-else>This collection has no cards yet.</p>
@@ -85,8 +91,6 @@ export default {
   },
   methods: {
     getCollectionsByUserId() {
-      alert('this has been activated');
-
       axios.get(`http://localhost:9000/collections/user/${this.$store.state.user.id}`)
         .then(response => {
           this.newCollections = response.data;
@@ -167,5 +171,19 @@ export default {
 #collectionButtons {
   background-color: rgb(0, 0, 0);
   color: white;
+}
+
+.displayCard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 120px;
+  margin: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 </style>

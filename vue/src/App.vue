@@ -15,6 +15,7 @@
     </div>
 
     <div id="ads" class="ads">
+      
       <sidebar-ads />
     </div>
 
@@ -31,7 +32,7 @@
 </template>
 
 <script>
-import SidebarAds from "./components/SidebarAds.vue";
+import SidebarAds from "./components/sidebarAds.vue";
 import BottomFooter from "./components/BottomFooter.vue";
 import NavBar from "./components/NavBar.vue";
 import MainContent from "./components/MainContent.vue";
