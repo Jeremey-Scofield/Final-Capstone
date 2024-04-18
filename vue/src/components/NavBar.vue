@@ -8,17 +8,17 @@
     <button id="createCollection" v-on:click="showCollectionForm"> Create Collection </button>
 
 
-    <div v-if="showCollectForm" id="createCollection">
-      <div id="create-collection">
+    <div v-if="showCollectForm" id="createCollectionForm">
+      <div >
         <form v-on:submit.prevent="createCollection">
           <div>
-            Name:<input type="text" id="collection_name" v-model="collection.collection_name"
+            Name:  <input type="text" id="collection_name" v-model="collection.collection_name"
               placeholder="New Collection Name" />
 
             <!-- ID: <input type="text" id="user_id" v-model="this.$store.state.user.id" disabled />  -->
           </div>
 
-          <button type="submit">Confirm Collection</button>
+          <button id="confirmCreateCollection" type="submit">Confirm Collection</button>
         </form>
       </div>
     </div>
@@ -26,7 +26,7 @@
     <br />
 
     <div>
-      <button v-on:click="deleteCollectionByCollectionId(selectedOption)">Delete Collection </button>
+      <button id="deleteCollection" v-on:click="deleteCollectionByCollectionId(selectedOption)">Delete Collection </button>
       <select v-model="selectedOption" :items="options">
         <option v-for="option in options" :key="option.id" :value="option.collectionId">
           {{ option.collectionName }} (ID: {{ option.collectionId }})
@@ -115,6 +115,9 @@ button {
   width: 140px;
   height: 30px;
   border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 img {
@@ -130,5 +133,12 @@ img {
 
 #createCollection {
   background-color: rgb(90, 169, 62);
+}
+#confirmCreateCollection {
+  background-color: rgb(90, 169, 62);
+  
+}
+#deleteCollection {
+  background-color: rgb(222, 56, 44);
 }
 </style>

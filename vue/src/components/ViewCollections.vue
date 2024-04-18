@@ -2,14 +2,14 @@
   <div id="collectionsContainer">
     <div class="publicCollections" v-bind:to="{ name: 'view-collections' }">
 
-      <h1 id="publicTitle">Viewable Card Collections</h1>
+      <h2 id="publicTitle">Slytherin Card Collections</h2>
 
       <button @click="getAllCollections"> get all collections </button>
 
       <p v-if="allCollections.length > 0">
         All Collections:
       <ul>
-        <button v-for="collection in allCollections" :key="collection.collectionId" class="allCollectionButton"
+        <button id="collectionButtons" v-for="collection in allCollections" :key="collection.collectionId" class="allCollectionButton"
           @click="handleAllCollections(collection.collectionId)">
           {{ collection.collectionName }}
         </button>
@@ -164,5 +164,8 @@ export default {
 </script>
 
 <style scoped>
-/* ... your styles ... */
+#collectionButtons {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
 </style>
