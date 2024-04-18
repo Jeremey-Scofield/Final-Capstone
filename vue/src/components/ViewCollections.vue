@@ -91,8 +91,6 @@ export default {
   },
   methods: {
     getCollectionsByUserId() {
-      alert('this has been activated');
-
       axios.get(`http://localhost:9000/collections/user/${this.$store.state.user.id}`)
         .then(response => {
           this.newCollections = response.data;
