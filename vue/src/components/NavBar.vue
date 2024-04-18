@@ -7,7 +7,7 @@
 
 
     <div v-if="showCollectForm" id="createCollection">
-      <divid="create-collection">
+      <div id="create-collection">
         <form v-on:submit.prevent="createCollection">
           <div>
             Name: <input type="text" id="collection_name" v-model="collection.collection_name"
