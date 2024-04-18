@@ -1,6 +1,4 @@
 <template>
-
-
   <div class="navLinks" v-if="$store.state.token != ''">
 
     <button id="myCollections">View My Collections</button>
@@ -9,16 +7,16 @@
 
 
     <div v-if="showCollectForm" id="createCollection">
-      <div id="create-collection">
+      <divid="create-collection">
         <form v-on:submit.prevent="createCollection">
           <div>
-            Name:<input type="text" id="collection_name" v-model="collection.collection_name"
+            Name: <input type="text" id="collection_name" v-model="collection.collection_name"
               placeholder="New Collection Name" />
 
             <!-- ID: <input type="text" id="user_id" v-model="this.$store.state.user.id" disabled />  -->
           </div>
 
-          <button type="submit">Confirm Collection</button>
+          <button id="confirmCreateCollection" type="submit">Confirm Create</button>
         </form>
       </div>
     </div>
@@ -26,17 +24,22 @@
     <br />
 
     <div>
-      <button v-on:click="deleteCollectionByCollectionId(selectedOption)">Delete Collection </button>
-      <select v-model="selectedOption" :items="options">
-        <option v-for="option in options" :key="option.id" :value="option.collectionId">
-          {{ option.collectionName }} (ID: {{ option.collectionId }})
-        </option>
-      </select>
+      <button id="deleteCollection" v-on:click="showDeletionForm">Delete Collection</button>
+      <!-- v-on:click="deleteCollectionByCollectionId(selectedOption)" -->
+      <div v-if="showDeleteForm" id="deleteCollectionForm">
+        <div>
+          <select v-model="selectedOption" :items="options">
+            <option v-for="option in options" :key="option.id" :value="option.collectionId">
+              {{ option.collectionName }} (ID: {{ option.collectionId }})
+            </option>
+          </select>
+        </div>
+        <button id="confirmDeleteButton" v-on:click="deleteCollectionByCollectionId(selectedOption)">Confirm Delete</button>
+      </div>
     </div>
-
+    
   </div>
   <img src="../images/mtgsymbols-removebg-preview.png" />
-
 </template>
 
 <script>
@@ -47,6 +50,9 @@ export default {
   methods: {
     showCollectionForm() {
       this.showCollectForm = !this.showCollectForm;
+    },
+    showDeletionForm() {
+      this.showDeleteForm = !this.showDeleteForm;
     },
     createCollection() {
       const collectionName = String(this.collection.collection_name).trim();
@@ -94,6 +100,7 @@ export default {
   data() {
     return {
       showCollectForm: false,
+      showDeleteForm: false,
       collection: {
         collection_name: "",
         user_id: this.$store.state.user.id
@@ -130,5 +137,14 @@ img {
 
 #createCollection {
   background-color: rgb(90, 169, 62);
+}
+
+#confirmCreateCollection {
+  background-color: rgb(90, 169, 62);
+
+}
+
+#deleteCollection {
+  background-color: rgb(222, 56, 44);
 }
 </style>
