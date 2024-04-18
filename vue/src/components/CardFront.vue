@@ -7,7 +7,7 @@
         <card-details v-bind:card="this.cardFront" />
     </div>
 
-    <div>
+    <div class = "cardDeleteButton">
         <button v-on:click="pushCardToCollection">Add To Collection</button>
         <select v-model="selectedOption" :items="options">
             <option v-for="option in options" :key="option.id" :value="option.collectionId">
