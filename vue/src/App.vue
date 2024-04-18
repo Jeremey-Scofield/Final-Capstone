@@ -65,7 +65,7 @@ export default {
 #navBar {
   grid-area: navbar;
   
-  align-self: stretch;
+  
 }
 
 #mainContent {
@@ -76,8 +76,8 @@ export default {
 
 #ads {
   grid-area: ads;
-  display: flex;
-  align-content: space-between;
+  
+  
   
 }
 

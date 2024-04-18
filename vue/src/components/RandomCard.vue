@@ -4,7 +4,7 @@
       <h2>Random Card:</h2>
     </div>
     <div id="cardPic" v-on:click="showCardDetails(true)">
-      <img v-bind:src="card.image_uris.small" v-bind:alt="card.name" v-bind:to="{ name: 'RandomCard' }" />
+      <img v-bind:src="card.image_uris.large" v-bind:alt="card.name" v-bind:to="{ name: 'RandomCard' }" />
     </div>
     <div id="cardTitle">
       <h3>{{ card.name }}</h3>
@@ -96,7 +96,7 @@ export default {
   flex-direction: column;
   padding: 0;
   margin: 0;
-  width: 75%;
+  width: 250px;
 }
 
 #cardTitle {
